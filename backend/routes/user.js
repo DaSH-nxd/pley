@@ -5,10 +5,11 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 const User = require('../models/User');
+const auth = require('../middleware/auth');
 
 /**
  * @method - POST
- * @param - /signup
+ * @param - /user/signup
  * @description - User SignUp
  */
 
@@ -19,31 +20,31 @@ router.post(
         check('email', 'Please enter a valid email').isEmail(),
         check('password', 'Please enter a valid password').isLength({
             min : 6
-        })
+        }),
     ],
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({
-                errors : errors.array()
+                errors : errors.array(),
             });
         }
 
         const { username, email, password } = req.body;
         try {
             let user = await User.findOne({
-                email
+                email,
             });
             if (user) {
                 return res.status(400).json({
-                    msg : 'User Already Exists'
+                    msg : 'User Already Exists',
                 });
             }
 
             user = new User({
                 username,
                 email,
-                password
+                password,
             })
 
             const salt = await bcrypt.genSalt(10);
@@ -53,20 +54,20 @@ router.post(
 
             const payload = {
                 user : {
-                    id : user.id
-                }
+                    id : user.id,
+                },
             };
 
             jwt.sign(
                 payload,
                 'randomString',
                 {
-                    expiresIn: 10000
+                    expiresIn: 10000,
                 },
                 (err, token) => {
                     if (err) throw err;
                     res.status(200).json({
-                        token
+                        token,
                     });
                 }
             );
@@ -79,7 +80,7 @@ router.post(
 
 /**
  * @method - POST
- * @param - /login
+ * @param - /user/login
  * @method - User Login
  */
 
@@ -145,5 +146,21 @@ router.post(
         }
     }
 );
+
+/**
+ * @method - GET
+ * @description - Get LoggedIn User
+ * @param - /user/me
+ */
+
+router.get('/me', auth, async (req, res) => {
+    try {
+        // req.user is getting fetched from Middleware after token authentication
+        const user = await User.findById(req.user.id);
+        res.json(user);
+    } catch (e) {
+        res.send({ message : 'Error In Fetching User' });
+    }
+});
 
 module.exports = router;

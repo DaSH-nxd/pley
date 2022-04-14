@@ -5,7 +5,7 @@ const MONGOURL = 'mongodb://127.0.0.1:27017/auth-db';
 const InitiateMongoServer = async () => {
     try {
         await mongoose.connect(MONGOURL, {
-            useNewUrlParser : true
+            useNewUrlParser : true,
         });
         console.log('Connected to DB');
     } catch (e) {
