@@ -1,5 +1,9 @@
 import React from 'react';
 
+/* 
+Contacts page
+*/
+
 const Contact = () => {
     return (
         <h1>
