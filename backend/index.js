@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const user = require('./routes/user');
+const yelp = require('./routes/yelp');
 const InitiateMongoServer = require('./config/db');
+
 
 // Initiate Mongo Server
 InitiateMongoServer();
@@ -20,6 +22,13 @@ app.use(bodyParser.json());
  * Method - *
  */
 app.use('/user', user);
+
+/**
+ * Router = /user/*
+ * Method - *
+ */
+app.use('/yelp', yelp);
+
 
 app.get('/', (req, res) => {
     res.json({ message : 'API Working' });
