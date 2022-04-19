@@ -23,6 +23,9 @@ const HomeHeaderNav = () => {
                 <BreadcrumbItem className='pley-nav-link'>
                     <BreadcrumbLink href='./contact'>Contact</BreadcrumbLink>
                 </BreadcrumbItem>
+                <BreadcrumbItem className='pley-nav-link'>
+                    <BreadcrumbLink href='./search'>Search</BreadcrumbLink>
+                </BreadcrumbItem>
             </Breadcrumb>
             <Spacer/>
             <ButtonGroup className="signin-btn" spacing='6'>

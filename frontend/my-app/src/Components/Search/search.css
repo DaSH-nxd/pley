@@ -1,14 +1,9 @@
 .header {
-    /* display: flex;
-    justify-content: center;
-    margin-top: 10%; */
-    
     font-family: 'Jost';
     font-style: normal;
-    font-weight: 400;
-    font-size: 50px;
+    font-weight: 200;
+    font-size: 30px;
     line-height: 150%;
-    /* identical to box height, or 36px */
     
     font-feature-settings: 'tnum' on, 'lnum' on;
     
@@ -30,28 +25,6 @@ form {
 
     border-radius: 16px;
 }
-
-/* 
-
-label {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-
-
-    color: #37447E;
-}
-
-
-input {
-    display: flex;
-    width: 172px;
-    height: 27px;    
-} */
-
-
 
 .question {
     display: flex;
