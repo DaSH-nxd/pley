@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import {
+    Button, 
+    ChakraProvider,
+    FormControl,
+    FormLabel,
+    Input,
+    InputGroup,
+    ListItem,
+    UnorderedList
+} from "@chakra-ui/react"
+import './Signup.css';
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -17,46 +26,81 @@ const SignUp = () => {
     }
 
     return (
-    <div className="SignUp">
-        <Form onSubmit={handleSubmit}>
-            <Form.Group size = "lg" controlId="firstName">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control
-                    autofocus
-                    type = "firstName"
-                    value = {firstName}
-                    onChange = {(d) => setFirstName(d.target.value)}
-                    />
-            </Form.Group>
-            <Form.Group size = "lg" controlId="LastName">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control
-                    type = "lastName"
-                    value = {lastName}
-                    onChange = {(d) => setLastName(d.target.value)}
-                    />
-            </Form.Group>
-            <Form.Group size="lg" controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                    type = "email"
-                    value = {email}
-                    onChange = {(d) => setEmail(d.target.value)}
-                    />
-            </Form.Group>
-            <Form.Group size = "lg" controlId = "password">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                    type = "password"
-                    value = {password}
-                    onChange = {(d) => setPassword(d.target.value)}
-                    />
-            </Form.Group>
-            <Button block size ="lg" type="submit" disabled={!validateForm()}>
-                Sign Up
+        <ChakraProvider>
+            <FormControl className='login-form' onSubmit={handleSubmit}>
+                <FormLabel htmlFor='first-name'>First Name:</FormLabel>
+                <InputGroup>
+                    <Input 
+                    id='firstName'
+                    type='firstName' 
+                    placeholder='Enter your first name.'
+                    value={firstName}
+                    onChange = {(d) => 
+                    setFirstName(d.target.value)
+                    }/>
+                </InputGroup>
+            </FormControl>       
+            <FormControl className='login-form' onSubmit={handleSubmit}>
+                <FormLabel htmlFor='last-name'>Last Name:</FormLabel>
+                <InputGroup>
+                    <Input 
+                    id='lastName'
+                    type='lastName' 
+                    placeholder='Enter your last name.'
+                    value={lastName}
+                    onChange = {(d) => 
+                    setLastName(d.target.value)
+                    }/>
+                </InputGroup>
+            </FormControl>        
+            <FormControl className='login-form' onSubmit={handleSubmit}>
+                <FormLabel htmlFor='email'>Enter your email:</FormLabel>
+                <InputGroup>
+                    <Input 
+                    id='email'
+                    type='email' 
+                    placeholder='Enter Email'
+                    value={email}
+                    onChange = {(d) => 
+                    setEmail(d.target.value)
+                    }/>
+                </InputGroup>
+            </FormControl>
+            <UnorderedList className='signup-password-rules'>
+                <ListItem>At least 6 characters with no space</ListItem>
+                <ListItem>At Least 1 Uppercase Letter</ListItem>
+                <ListItem>At least 1 number</ListItem>
+                <ListItem>At least 1 of the following special characters from !#$^*</ListItem>
+            </UnorderedList>
+            <FormControl className='login-form' onSubmit={handleSubmit}>
+                <InputGroup>
+                    <Input 
+                        id='password'
+                        type='password' 
+                        placeholder='Password'
+                        value={password}
+                        onChange = {(d) => 
+                        setPassword(d.target.value)
+                        }/>
+                </InputGroup>
+            </FormControl>
+            <FormControl className='login-form' onSubmit={handleSubmit}>
+                <FormLabel htmlFor='email'>Verify your password:</FormLabel>
+                <InputGroup>
+                    <Input 
+                        id='password'
+                        type='password' 
+                        placeholder='Password'
+                        value={password}
+                        onChange = {(d) => 
+                        setPassword(d.target.value)
+                        }/>
+                </InputGroup>
+            </FormControl>
+            <Button className='signup-button' width={''} block size ="sm" type="submit" colorScheme={'blue'} disabled={!validateForm()}>
+                Create Account
             </Button>
-        </Form>
-    </div>
+        </ChakraProvider>
     );
 }
 
