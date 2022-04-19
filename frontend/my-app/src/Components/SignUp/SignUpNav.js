@@ -9,15 +9,15 @@ import {
 const SignUpNav = () => {
     return (
         <Flex>
-            <Breadcrumb className='pley-signup-nav' spacing='8px' separator="">
+            <Breadcrumb className='pley-signup-nav' spacing='24px' separator="">
                 <BreadcrumbItem className='pley-nav-link'>
                     <BreadcrumbLink href='/'>Home</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem className='pley-nav-link'>
-                    <BreadcrumbLink href='/about'>About Us</BreadcrumbLink>
+                    <BreadcrumbLink href='./contact'>Contact</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem className='pley-nav-link'>
-                    <BreadcrumbLink href='./contact'>Contact</BreadcrumbLink>
+                    <BreadcrumbLink href='./search'>Search</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
         </Flex>

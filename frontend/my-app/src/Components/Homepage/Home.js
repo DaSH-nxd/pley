@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeHeaderNav from './HomeNav';
+import HomeHeaderNav from './HomeHeaderNav';
 import HomeContainer from './HomeContainer';
 import { ChakraProvider } from '@chakra-ui/react'
 import './Home.css';

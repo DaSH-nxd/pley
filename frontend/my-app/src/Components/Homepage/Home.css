@@ -1,11 +1,5 @@
 .pley-home-nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    position: relative;
-    padding: 1em;
-    width: 100%;
-    max-width: 500px;
+    padding:1em;
     min-width: 400px;
 }
 
@@ -13,7 +7,7 @@
     font-size: x-large;
 }
 
-.signin-btn {
+.user-nav {
     padding: 1em;
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
     Button, 
     ChakraProvider,
+    Fade,
     FormControl,
     FormLabel,
     Input,
@@ -14,6 +15,7 @@ import './Signup.css';
 const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [verify, setVerify] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
 
@@ -25,9 +27,17 @@ const SignUp = () => {
         event.preventDefault();
     }
 
+    function validatePassword() {
+        if (password === verify) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     return (
         <ChakraProvider>
-            <FormControl className='login-form' onSubmit={handleSubmit}>
+            <FormControl className='signup-form' onSubmit={handleSubmit}>
                 <FormLabel htmlFor='first-name'>First Name:</FormLabel>
                 <InputGroup>
                     <Input 
@@ -40,7 +50,7 @@ const SignUp = () => {
                     }/>
                 </InputGroup>
             </FormControl>       
-            <FormControl className='login-form' onSubmit={handleSubmit}>
+            <FormControl className='signup-form' onSubmit={handleSubmit}>
                 <FormLabel htmlFor='last-name'>Last Name:</FormLabel>
                 <InputGroup>
                     <Input 
@@ -53,7 +63,7 @@ const SignUp = () => {
                     }/>
                 </InputGroup>
             </FormControl>        
-            <FormControl className='login-form' onSubmit={handleSubmit}>
+            <FormControl className='signup-form' onSubmit={handleSubmit}>
                 <FormLabel htmlFor='email'>Enter your email:</FormLabel>
                 <InputGroup>
                     <Input 
@@ -72,7 +82,7 @@ const SignUp = () => {
                 <ListItem>At least 1 number</ListItem>
                 <ListItem>At least 1 of the following special characters from !#$^*</ListItem>
             </UnorderedList>
-            <FormControl className='login-form' onSubmit={handleSubmit}>
+            <FormControl className='signup-form' onSubmit={handleSubmit} mt={'20px'}>
                 <InputGroup>
                     <Input 
                         id='password'
@@ -84,16 +94,16 @@ const SignUp = () => {
                         }/>
                 </InputGroup>
             </FormControl>
-            <FormControl className='login-form' onSubmit={handleSubmit}>
+            <FormControl className='signup-form' onSubmit={handleSubmit} mt={'-40px'} >
                 <FormLabel htmlFor='email'>Verify your password:</FormLabel>
                 <InputGroup>
                     <Input 
                         id='password'
                         type='password' 
                         placeholder='Password'
-                        value={password}
+                        value={verify}
                         onChange = {(d) => 
-                        setPassword(d.target.value)
+                        setVerify(d.target.value)
                         }/>
                 </InputGroup>
             </FormControl>

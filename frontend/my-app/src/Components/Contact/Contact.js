@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeHeaderNav from '../Homepage/HomeNav';
+import HomeHeaderNav from '../Homepage/HomeHeaderNav';
 
 /* 
 Contacts page
@@ -7,11 +7,10 @@ Contacts page
 
 const Contact = () => {
     return (
-        <h1>
-            <HomeHeaderNav/>
-
-            Contacts
-        </h1>
+        <div>
+        <HomeHeaderNav/>
+            <h1>Contacts</h1>
+        </div>
     )
 }
 

@@ -13,15 +13,14 @@ h2 {
      padding:0 10px; 
  }
 
+ .pley-nav-link {
+    font-size: x-large;
+}
+
  .pley-login-nav {
      padding: 1em;
+     min-width: 400px;
  }
-
- .pley-home-link {
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0;
-}
 
  .login-page {
     display: flex;

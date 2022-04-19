@@ -18,9 +18,6 @@ const HomeHeaderNav = () => {
                     <BreadcrumbLink href='/'>Home</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem className='pley-nav-link'>
-                    <BreadcrumbLink href='/about'>About Us</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbItem className='pley-nav-link'>
                     <BreadcrumbLink href='./contact'>Contact</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbItem className='pley-nav-link'>
@@ -28,13 +25,9 @@ const HomeHeaderNav = () => {
                 </BreadcrumbItem>
             </Breadcrumb>
             <Spacer/>
-            <ButtonGroup className="signin-btn" spacing='6'>
-                <Button href="signup" colorScheme='yellow' size='md' width={'200px'} color="#ffffff">
-                    <Link href='./signup'>Sign Up</Link>
-                </Button>
-                <Button href="login" colorScheme='blue' size='md' width={'200px'} color="#ffffff">
-                    <Link href='./login'>Log In</Link>
-                </Button>
+            <ButtonGroup className="user-nav" spacing='6'>
+                <Link href="signup" color="#ffffff"><Button colorScheme='yellow' size='md' width={'200px'} color='#ffffff'>Sign Up</Button></Link>
+                <Link href="login" color="#ffffff"><Button colorScheme='blue' size='md' width={'200px'} color='#ffffff'>Log In</Button></Link>
             </ButtonGroup>
         </Flex>
     )

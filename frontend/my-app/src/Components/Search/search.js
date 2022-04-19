@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./search.css";
 import TextQuestion from './textQuestion'
-import HomeHeaderNav from '../Homepage/HomeNav';
+import HomeHeaderNav from '../Homepage/HomeHeaderNav';
 
 
 const Search = () => {
