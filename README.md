@@ -5,6 +5,7 @@
 ### Fullstack Ideas
 <ul>
     <li>deploy frontend and backend via Heroku?</li>
+    <li>finalize filters that we need to add</li>
 </ul>
 
 #### Homepage
