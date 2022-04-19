@@ -47,6 +47,8 @@
     <li>past recommendations</li>
 </ul>
 
+#### Contacts
+
 <ul>
     <li>Members who contributed to this project, put additional links (LinkedIn, Github, Portfolio, etc.)</li>
 </ul>
