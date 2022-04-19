@@ -2,9 +2,9 @@ import './Home.css'
 import React from 'react';
 import {Flex, Image, Img} from '@chakra-ui/react';
 import Texts from './Texts'
-const HomeBody = () => {
+const HomeContainer = () => {
     return (
-        <Flex className='homepage-body' justify="space-evenly">
+        <Flex className='homepage-container' justify="space-evenly">
             <Texts/>
             <div className="homepage-picture-container">
                 <Image className="homepage-picture" src={require('./homepage_pictures/pleyimg 1.png')} alt='pley img'/>
@@ -13,4 +13,4 @@ const HomeBody = () => {
     )
 }
 
-export default HomeBody;
+export default HomeContainer;

@@ -1,9 +1,12 @@
 .pley-home-nav {
     display: flex;
     flex-direction: row;
-    position:relative;
+    flex-wrap: nowrap;
+    position: relative;
     padding: 1em;
-    width: 400px;
+    width: 100%;
+    max-width: 500px;
+    min-width: 400px;
 }
 
 .pley-nav-link {
@@ -14,7 +17,7 @@
     padding: 1em;
 }
 
-.homepage-body {
+.homepage-container {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap-reverse;

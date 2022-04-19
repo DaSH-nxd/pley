@@ -13,6 +13,10 @@ h2 {
      padding:0 10px; 
  }
 
+ .pley-login-nav {
+     padding: 1em;
+ }
+
  .pley-home-link {
     flex-grow: 1;
     flex-shrink: 1;
