@@ -2,6 +2,11 @@
 
 ## Pages
 
+### Fullstack Ideas
+<ul>
+    <li>deploy frontend and backend via Heroku?</li>
+</ul>
+
 #### Homepage
 
 <ul>

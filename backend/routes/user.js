@@ -10,7 +10,8 @@ const auth = require('../middleware/auth');
 /**
  * @method - POST
  * @param - /user/signup
- * @description - User SignUp
+ * @description - User SignUp with a unique username and a unique email
+ * @visibility - NOT LOGGED IN/SIGNED UP
  */
 
 router.post(
@@ -32,9 +33,10 @@ router.post(
 
         const { username, email, password } = req.body;
         try {
-            let user = await User.findOne({
-                email,
-            });
+            let user = await User.findOne({$or : [
+                { username }, 
+                { email }
+            ]});
             if (user) {
                 return res.status(400).json({
                     msg : 'User Already Exists',
@@ -81,13 +83,14 @@ router.post(
 /**
  * @method - POST
  * @param - /user/login
- * @description - User Login
+ * @description - User Login using username and password
+ * @visibility - NOT LOGGED IN/SIGNED UP
  */
 
 router.post(
     '/login',
     [
-        check('email', 'Please enter a valid email').isEmail(),
+        check('username', 'Please Enter a Valid Username').not().isEmpty(),
         check('password', 'Please enter a valid password').isLength({
             min : 8,
         }),
@@ -101,10 +104,10 @@ router.post(
             });
         }
 
-        const { email, password } = req.body;
+        const { username, password } = req.body;
         try {
             let user = await User.findOne({
-                email,
+                username,
             });
             if (!user) {
                 return res.status(400).json({
@@ -151,6 +154,7 @@ router.post(
  * @method - GET
  * @param - /user/me
  * @description - Get LoggedIn User using token
+ * @visibility - NOT LOGGED IN/SIGNED UP
  */
 
 router.get(
@@ -171,6 +175,7 @@ router.get(
  * @method - PUT
  * @param - /user/delete
  * @description - Delete User if they want to delete their account, must delete with token
+ * @visibility - LOGGED IN
  */
 
 router.put(
@@ -194,7 +199,8 @@ router.put(
 /**
  * @method - PUT
  * @param - /user/password
- * @description - Change password, must enter email to change password
+ * @description - Change password, enter email as well as two new passwords
+ * @visibility - LOGGED IN
  */
 
  router.put(
