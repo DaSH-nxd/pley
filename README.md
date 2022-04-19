@@ -46,3 +46,7 @@
     <li>Past searches (past filter preferences) maybe can load to the search page with those filters preset when we click on a past search?</li>
     <li>past recommendations</li>
 </ul>
+
+<ul>
+    <li>Members who contributed to this project, put additional links (LinkedIn, Github, Portfolio, etc.)</li>
+</ul>
