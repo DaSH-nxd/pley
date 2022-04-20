@@ -3,6 +3,7 @@
 ## Pages
 
 ### Fullstack Ideas
+
 <ul>
     <li>deploy frontend and backend via Heroku?</li>
     <li>finalize filters that we need to add</li>
@@ -44,6 +45,7 @@
 
 <ul>
     <li>Past searches (past filter preferences) maybe can load to the search page with those filters preset when we click on a past search?</li>
+    <li>Set up profile picture, and formatting for user blurb and visit history.</li>
     <li>past recommendations</li>
 </ul>
 

@@ -1,0 +1,29 @@
+.blurb-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin-top: 175px;
+  margin-left: 100px;
+  width: 100%;
+  height: 300px;
+}
+
+.user-name {
+  display: flex;
+  justify-content: left;
+  font-size: x-large;
+}
+.user-description {
+  text-align: left;
+}
+
+.visited-places {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.img-place {
+  flex: 0 0 26%;
+  margin-top: 15px;
+}
