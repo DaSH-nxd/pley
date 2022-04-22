@@ -3,6 +3,7 @@ import Homepage from './Components/Homepage/Home';
 import LoginPage from './Components/Login/LoginPage';
 import SignUp from './Components/SignUp/SignupPage';
 import Contact from './Components/Contact/Contact';
+import Profile from './Components/Profilepage/Profile'
 import Search from './Components/Search/search';
 import { Routes, Route } from 'react-router-dom';
 
@@ -13,6 +14,7 @@ function App() {
       <Routes> <Route path="/login" element={<LoginPage/>} /></Routes>
       <Routes> <Route path="/signup" element={<SignUp/>} /></Routes>
       <Routes> <Route path="/contact" element={<Contact/>} /></Routes>
+      <Routes> <Route path="/profile" element={<Profile/>} /></Routes>
       <Routes> <Route path="/search" element={<Search/>} /></Routes>
     </div>
   );

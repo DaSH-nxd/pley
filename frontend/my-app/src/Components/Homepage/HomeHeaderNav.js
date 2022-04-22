@@ -28,6 +28,7 @@ const HomeHeaderNav = () => {
             <ButtonGroup className="user-nav" spacing='6'>
                 <Link href="signup" color="#ffffff"><Button colorScheme='yellow' size='md' width={'200px'} color='#ffffff'>Sign Up</Button></Link>
                 <Link href="login" color="#ffffff"><Button colorScheme='blue' size='md' width={'200px'} color='#ffffff'>Log In</Button></Link>
+                <Link href="profile" color="#ffffff"><Button colorScheme='red' size='md' width={'200px'} color='#ffffff'>Profile</Button></Link>
             </ButtonGroup>
         </Flex>
     )

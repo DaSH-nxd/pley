@@ -66,22 +66,9 @@ const History = () => {
                 alt = 'marina'
             />
             </div>
-            <div className='img-place'>
-                <Image 
-                boxSize = '300px' 
-                objectFit = 'cover'
-                src = {require('./marina.jpg')}
-                alt = 'marina'
-            />
-            </div>
-            <div className='img-place'>
-                <Image 
-                boxSize = '300px' 
-                objectFit = 'cover'
-                src = {require('./marina.jpg')}
-                alt = 'marina'
-            />
-            </div>    
+
+            
+            
         </div>
     </div>
 }
