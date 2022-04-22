@@ -1,0 +1,31 @@
+.search-result {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.business-image {
+    width: 210px;
+    height: 210px;
+    margin-right: 10px;
+}
+
+.business-desc {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    font-size: .85rem;
+    align-items: flex-start;
+}
+
+.business-address {
+    display: flex;
+    flex-direction: column;
+    font-size: .85rem;
+    align-items: flex-start;
+}
+
+.business-name {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
