@@ -27,5 +27,9 @@
 
 .business-name {
     font-size: 1.1rem;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
+}
+
+.fav-tag {
+    margin-bottom: 25px;
 }

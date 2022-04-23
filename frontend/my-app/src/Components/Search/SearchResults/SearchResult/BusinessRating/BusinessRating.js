@@ -6,7 +6,7 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 
 
-export function BusinessRating() {
+function BusinessRating(props) {
     return (
         <div className ='rating'>
             <Rating 
@@ -21,12 +21,12 @@ export function BusinessRating() {
                     <FontAwesomeIcon
                     icon={fasStar}
                     className='mx-2'
-                    style={{ color: '#ffd700' }}
+                    style={{ color: '#FFD700' }}
                     />
                 }
                 fractions={2}
                 readonly
-                initialRating={3}
+                initialRating={props.rating}
             />
         </div>
     )
