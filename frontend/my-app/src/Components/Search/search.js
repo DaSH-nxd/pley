@@ -7,7 +7,6 @@ import SearchResults from './SearchResults/SearchResults';
 const Search = () => {
   return (
       <div>
-
         <HomeHeaderNav></HomeHeaderNav>
         <h1 className='header'>What do you feel like doing?</h1>
         <TextQuestion></TextQuestion>
