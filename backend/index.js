@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use('/user', user);
 
 /**
- * Router = /user/*
+ * Router = /yelp/*
  * Method - *
  */
 app.use('/yelp', yelp);
