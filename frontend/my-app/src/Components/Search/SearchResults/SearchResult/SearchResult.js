@@ -14,7 +14,7 @@ function SearchResult() {
     const [isFavorite, setFavorite] = useState(false);
 
     function renderStar() {
-        let icon = isFavorite ? farStar : fasStar;
+        let icon = isFavorite ? fasStar : farStar;
 
         return (
         <Favorite 

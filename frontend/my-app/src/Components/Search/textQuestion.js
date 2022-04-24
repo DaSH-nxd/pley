@@ -65,88 +65,40 @@ https://stackoverflow.com/questions/7295843/allow-only-numbers-to-be-typed-in-a-
 
           <div className='box'>
             <label>
-              Question 1
+              Are you looking for a local event?
               <input type="text" onChange={e => this.setState({ input_q1: e.target.value })} />
             </label>
           </div>
 
           <div className='box'>
             <label>
-              Question 2
+              Are you looking for a place to eat?
               <input type="text" onChange={e => this.setState({ input_q2: e.target.value })} />
             </label>
           </div>
 
           <div className='box'>
             <label>
-              Question 3
+            Are you going out for the night?
               <input type="text" onChange={e => this.setState({ input_q3: e.target.value })} />
             </label>
           </div>
           
           <div className='box'>
             <label>
-              Question 4
+            Are you looking for something new and exciting?
               <input type="text" onChange={e => this.setState({ input_q4: e.target.value })} />
             </label>
           </div>
 
           <div className='box'>
             <label>
-              Question 5
+            What is your budget?
               <input type="text" onChange={e => this.setState({ input_q5: e.target.value })} />
             </label>
           </div>
 
-          <div className='box'>
-            <label>
-              Question 6
-              <input type="text" onChange={e => this.setState({ input_q6: e.target.value })} />
-            </label>
-          </div>
-
-          <div className='box'>
-            <label>
-              Question 7
-              <input type="text" onChange={e => this.setState({ input_q7: e.target.value })} />
-            </label>
-          </div>
-
-          <div className='box'>
-            <label>
-              Question 8
-              <input type="text" onChange={e => this.setState({ input_q8: e.target.value })} />
-            </label>
-          </div>
-
-          <div className='box'>
-            <label>
-              Question 9
-              <input type="text" onChange={e => this.setState({ input_q9: e.target.value })} />
-            </label>
-          </div>
-
-          <div className='box'>
-            <label>
-              Question 10
-              <input type="text" onChange={e => this.setState({ input_q10: e.target.value })} />
-            </label>
-          </div>
-
-          <div className='box'>
-            <label>
-              Question 11
-              <input type="text" onChange={e => this.setState({ input_q11: e.target.value })} />
-            </label>
-          </div>
-
-          <div className='box'>
-            <label>
-              Question 12
-              <input type="text" onChange={e => this.setState({ input_q12: e.target.value })} />
-            </label>
-          </div>
-
+        
         </div>
         <input type="submit" value="Submit" />
         
