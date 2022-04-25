@@ -19,22 +19,16 @@ function FormQuestion(props){
   function submitQuery() {
     if(typeof props.buttonClick === 'function') {
 
+      //for events api later
       const isLocal = parseInt(localevent) ? 'businesses' : 'events';
       
-      var categories = '';
-      if (!parseInt(eat) && !parseInt(night)) {
-        categories += 'nightlife,restaurants';
-      } else if (!parseInt(eat)) {
-        categories += 'restaurants';
-      } else if (!parseInt(night)) {
-        categories += 'nightlife';
-      }
+      const nightlife = parseInt(night) ? '' : 'term=Nightlife'
 
+      const restaurants = parseInt(eat) ? '' : 'restaurants';
 
-      const newExciting = parseInt(exciting) ? 'a' : 'hot_and_new';
+      const newExciting = parseInt(exciting) ? '' : 'hot_and_new';
 
-      const newQuery = `location=Berkeley&categories=${categories}&attributes=${newExciting}&price=${budget}`;
-      
+      const newQuery = `${nightlife}&location=Berkeley&categories=${restaurants}&attributes=${newExciting}&price=${budget}`;      
       //console.log(newQuery);
 
       //callback, rerun the search
@@ -43,8 +37,9 @@ function FormQuestion(props){
     }
   }
 
-
-
+  //if (!props.businesses) {
+  //  return ()
+  //}
     return (
       //<form name = "answers" onSubmit={this.handleSubmit}>
       <>

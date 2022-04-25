@@ -9,7 +9,7 @@ export function useBusinessSearch(term, isLocalEvent) {
     //console.log(term)
     //console.log(searchParams);
 
-    useEffect(() => {
+    useEffect(() => {   
         setBusinesses([]);
         const fetchData = async () => {
             try {

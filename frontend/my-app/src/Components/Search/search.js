@@ -14,15 +14,17 @@ const Search = () => {
   //const location = new URL(`localhost:3000/search?find_desc=&find_loc=berkeley`);
   //const params = new URLSearchParams(location.search);
 
+  //https://api.yelp.com/v3/businesses/search?location=Berkeley&term=boba
   const term = 'location=Berkeley&categories=restaurants';
-  const isLocal = 'businesses';
+  const isLocal = '';
   const [businesses, amountResults, searchParams, setSearchParams] = useBusinessSearch(term, isLocal);
-
+  
 
   function search(query) {
     // do events vs business later.
   //  console.log('test');
-    console.log('test');
+    //console.log('test');
+    //console.log('i am inside search.js search function');
     setSearchParams(query);
   }
 
@@ -30,10 +32,10 @@ const Search = () => {
       <div>
         <HomeHeaderNav></HomeHeaderNav>
         <h1 className='header'>What do you feel like doing?</h1>
-        <FormQuestion term = {term}
+        <FormQuestion businesses = {businesses}
                       //location = {locationParam}
-                      amountResults = {amountResults}
-                      shownResult = {businesses ? businesses.length : 0}
+                      //amountResults = {amountResults}
+                      //shownResult = {businesses ? businesses.length : 0}
                       buttonClick = {search}
         />
         <SearchResults businesses={businesses}/>

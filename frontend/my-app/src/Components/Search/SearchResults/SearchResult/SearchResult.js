@@ -24,7 +24,7 @@ function SearchResult(props) {
         />
         );
     }
-    
+
     function handleClick() {
         //Maybe keep track of favorites in array/map to store in backend afterwards?
         setFavorite(!isFavorite);
