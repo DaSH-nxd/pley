@@ -2,7 +2,6 @@ import React, { useState, Fragment } from 'react';
 import './SearchResult.css';
 import oskiImg from './oski.jpg';
 import BusinessRating from './BusinessRating/BusinessRating';
-import BusinessImage from './BusinessImage/BusinessImage';
 import Favorite from './Favorite/Favorite';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
@@ -39,8 +38,9 @@ function SearchResult(props) {
         
         <Fragment>
         <div className = 'search-result'>
-            <BusinessImage
-                imgb = {b.image_url}
+            <img className = 'business-image' 
+                img src = {b.image_url} 
+                alt = 'oski'
             />
             
             <div className = 'business-desc'>
