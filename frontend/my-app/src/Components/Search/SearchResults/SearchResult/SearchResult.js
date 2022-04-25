@@ -9,9 +9,13 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 
 
-function SearchResult() {
+function SearchResult(props) {
 
     const [isFavorite, setFavorite] = useState(false);
+
+    if (!props.business) {
+        return (<div></div>);
+    }
 
     function renderStar() {
         let icon = isFavorite ? fasStar : farStar;
@@ -28,30 +32,38 @@ function SearchResult() {
         setFavorite(!isFavorite);
     }
 
+    const b = props.business;
+    const addressLines = b.location.display_address.map(addressLine => <p key = {b.id + addressLine}>{addressLine}</p>);
+
     return (
         
         <Fragment>
         <div className = 'search-result'>
             <BusinessImage
-                imgb = {oskiImg}
-                favorite = {farStar}
+                imgb = {b.image_url}
             />
             
             <div className = 'business-desc'>
                 <div className = "business-name">
-                    <p>Memorial Stadium</p>
+                    {b.name}
                 </div>
                 <div className = 'fav-tag'>
                     { renderStar() }
                 </div>
-                <BusinessRating rating = {3.5}/>
-                <p>$$$</p>
+                <p><BusinessRating rating = { b.rating }/></p>
+                <div>
+                { b.price }
+                </div>
             </div> 
 
-            <div className = 'business-address'>
-                <p>+17149559933</p>
-                <p>2115 Bancroft Way</p>
-                <p>94704</p>
+            <div className = 'business-add-contact'>
+                <div>
+                    <p>{b.phone}</p>
+                </div>
+                <div>
+                    {addressLines}
+                </div>
+                
             </div>
         </div>
         </Fragment>
