@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from 'react';
 import './SearchResult.css';
-import oskiImg from './oski.jpg';
 import BusinessRating from './BusinessRating/BusinessRating';
 import Favorite from './Favorite/Favorite';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

@@ -1,0 +1,12 @@
+.questions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    
+  }
+
+  .button-mid {
+    margin-top: 28px;
+    margin-left: auto;
+    margin-right: auto;
+  }
