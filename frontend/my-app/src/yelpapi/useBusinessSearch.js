@@ -4,12 +4,13 @@ import * as api from './api';
 export function useBusinessSearch(term, location) {
     const [businesses, setBusinesses] = useState([]);
     const [amountResults, setAmountResults] = useState();
-    const [searchParams, setSearchParams] = useState({term, location});
+    const [searchParams, setSearchParams] = useState(term);
 
     useEffect(() => {
         setBusinesses([]);
         const fetchData = async () => {
             try {
+                //make work just for businesses rn, do events also later
                 const rawData = await api.get('/businesses/search', searchParams);
                 const resp = await rawData.json();
                 setBusinesses(resp.businesses);

@@ -8,18 +8,20 @@ import { useBusinessSearch } from "../../yelpapi/useBusinessSearch"
 
 const Search = () => {
   //static temporarily just to test if works
+  //`${berkeleyuri}`
   const burgeruri = encodeURI('burgers');
   const berkeleyuri = encodeURI('Berkeley');
-  const location = new URL(`localhost:3000/search?find_desc=${burgeruri}&find_loc=${berkeleyuri}`);
+  const location = new URL(`localhost:3000/search?find_desc=&find_loc=berkeley`);
   const params = new URLSearchParams(location.search);
 
   const term = params.get('find_desc')
   const locationParam = params.get('find_loc');
   const [businesses, amountResults, searchParams, setSearchParams] = useBusinessSearch(term, locationParam);
 
-  function search(term, location) {
-    console.log('test');
-    setSearchParams({term, location});
+  function search(query) {
+    // do events vs business later.
+  //  console.log('test');
+    setSearchParams({query});
   }
 
   return (

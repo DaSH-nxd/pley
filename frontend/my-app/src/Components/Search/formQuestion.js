@@ -10,6 +10,35 @@ function FormQuestion(props){
   const [exciting, setExciting] = useState(true);
   const [budget, setBudget] = useState(1);
 
+  function submit(e) {
+    if(typeof props.search === 'function') {
+      const isLocal = localevent ? 'events' : 'businesses';
+      
+      const isEat = eat ? 'restaurants' : '';
+      const isNight = night ? 'nightlife' : '';
+      const categories = isEat + isNight;
+
+      const newExciting = exciting ? 'hot_and_new' : '';
+
+      const money = '$';
+      if (budget == 1) {
+        const money = '$';
+      } else if (budget == 2) {
+        const money = '$$';
+      } else {
+        const money = '$$$';
+      }
+      
+      const newQuery = `categories=${categories}&attributes=${newExciting}&price=${money}`;
+
+      //callback, rerun the search
+      // do events vs business after i make only business work first.
+      props.search(newQuery)
+    }
+  }
+
+  //function create
+
   //handleSubmit(event) {
     //TODO: fix specific validations check, add error text, and submit information collected to backend
   //  if (!this.validateForm()) {
