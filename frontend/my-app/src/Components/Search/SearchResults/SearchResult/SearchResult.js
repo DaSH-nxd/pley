@@ -16,8 +16,7 @@ function SearchResult(props) {
     }
 
     function renderStar() {
-        let icon = isFavorite ? fasStar : farStar;
-
+        const icon = isFavorite ? fasStar : farStar;
         return (
         <Favorite 
         fav = {icon}
@@ -25,6 +24,7 @@ function SearchResult(props) {
         />
         );
     }
+    
     function handleClick() {
         //Maybe keep track of favorites in array/map to store in backend afterwards?
         setFavorite(!isFavorite);
@@ -49,7 +49,7 @@ function SearchResult(props) {
                 <div className = 'fav-tag'>
                     { renderStar() }
                 </div>
-                <p><BusinessRating rating = { b.rating }/></p>
+                <BusinessRating rating = { b.rating }/>
                 <div>
                 { b.price }
                 </div>
