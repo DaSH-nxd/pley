@@ -104,6 +104,7 @@ function FormQuestion(props){
               </RadioGroup>
               </Stack>
           </div>
+
         </div>
         <div className= 'button-mid'>
           <Button onClick = {() => submitQuery()} colorScheme='blue'>Submit</Button>

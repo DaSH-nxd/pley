@@ -83,3 +83,7 @@ input[type=submit][value="Submit"] {
     
     color: #FFFFFF;
 }
+
+.submit-favs {
+    margin-bottom: 100px;
+}
