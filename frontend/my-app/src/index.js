@@ -1,22 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react'
 import theme from './theme/theme';
 
-
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ChakraProvider theme={theme}>
-        <App />
-      </ChakraProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <ChakraProvider theme={theme}>
+      <BrowserRouter>
+          <Routes>
+            <Route path="*" element={<App />}></Route>
+          </Routes>
+      </BrowserRouter>
+    </ChakraProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
