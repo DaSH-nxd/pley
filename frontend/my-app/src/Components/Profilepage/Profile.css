@@ -1,12 +1,3 @@
-.blurb-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  margin-top: 175px;
-  margin-left: 100px;
-  width: 100%;
-  height: 300px;
-}
 
 .user-name {
   display: flex;
@@ -27,4 +18,16 @@
 .img-place {
   flex: 0 0 26%;
   margin-top: 15px;
+}
+
+.entry-container {
+  position: relative;
+}
+
+.entry-events {
+  
+}
+
+.delete-button {
+  margin: 50px;
 }

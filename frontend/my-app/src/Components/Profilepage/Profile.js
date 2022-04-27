@@ -1,15 +1,18 @@
 import React from 'react';
-import Blurb from "./Blurb.js";
-import History from "./History.js";
+import ProfileHeader from "./ProfileHeader.js";
+import EntryContainer from "./EntryContainer.js";
 import HomeHeaderNav from '../Homepage/HomeHeaderNav';
+import Delete from './DeleteProfile'
 
 function Profile() {
 
     return (
         <>
         <HomeHeaderNav></HomeHeaderNav>
-        <Blurb />
-        <History />
+        <ProfileHeader/>
+        <EntryContainer />
+        <br/>
+        <Delete/>
         </>
     );
 }

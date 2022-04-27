@@ -57,7 +57,7 @@ function FormQuestion(props){
     return (
       //<form name = "answers" onSubmit={this.handleSubmit}>
       <>
-      <div className = 'questions'> 
+      <div> 
           <div>
           <Stack direction='column'>
               <p>Are you looking for Boba?</p>
@@ -71,7 +71,7 @@ function FormQuestion(props){
           </div>
 
           <div>
-          <Stack direction='column'>
+          <Stack>
               <p>Are you looking for a place to eat?</p>
               <RadioGroup onChange={setEat} value={eat}>
                   <Stack direction='row'>
@@ -83,7 +83,7 @@ function FormQuestion(props){
           </div>
 
           <div>
-          <Stack direction='column'>
+          <Stack>
             <p>Are you looking for something exciting?</p>
               <RadioGroup onChange={setExciting} value={exciting}>
                   <Stack direction='row'>
@@ -95,7 +95,7 @@ function FormQuestion(props){
           </div>
           
           <div>
-          <Stack direction='column'>
+          <Stack>
             <p>Are you going out for the night?</p>
               <RadioGroup onChange={setNight} value={night}>
                   <Stack direction='row'>
@@ -107,10 +107,10 @@ function FormQuestion(props){
           </div>
 
           <div>
-          <Stack direction='column'>
+          <Stack>
             <p>What is your budget?</p>
               <RadioGroup onChange={setBudget} value={budget}>
-                  <Stack direction='row'>
+                  <Stack>
                     <Radio value= {'1'}>$</Radio>
                     <Radio value= {'2'}>$$</Radio>
                     <Radio value= {'3'}>$$$</Radio>
