@@ -5,7 +5,7 @@ import HomeHeaderNav from '../Homepage/HomeHeaderNav';
 import SearchResults from './SearchResults/SearchResults';
 //import { useLocation } from 'react-router-dom';
 import { useBusinessSearch } from "../../yelpapi/useBusinessSearch"
-import { Button } from '@chakra-ui/react';
+import { Button, Heading } from '@chakra-ui/react';
 import axios from 'axios';
 
 const Search = () => {
@@ -81,6 +81,7 @@ const Search = () => {
       <div>
         <HomeHeaderNav></HomeHeaderNav>
         <h1 className='header'>What do you feel like doing?</h1>
+        <br/>
         <FormQuestion businesses = {businesses}
                       //location = {locationParam}
                       //amountResults = {amountResults}
