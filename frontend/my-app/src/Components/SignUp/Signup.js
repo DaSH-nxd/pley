@@ -20,7 +20,7 @@ const SignUp = () => {
     const [verify, setVerify] = useState("");
     const [username, setuserName] = useState("");
 
-    const [msg, setMsg] = useState("");
+    const [errmsg, seterrMsg] = useState("");
 
     /** 
     const registerUser = () => {
@@ -55,7 +55,8 @@ const SignUp = () => {
                     window.location.reload();
                 },
                 (error) => {
-                    console.log(error);
+                    seterrMsg(error.response.data.msg);
+                    console.log(error.response.data.msg);
                 }
             )
         } catch (error) {
@@ -64,6 +65,7 @@ const SignUp = () => {
     };
 
     return (
+        
         <ChakraProvider>
             <FormControl className='signup-form'>
                 <FormLabel htmlFor='username'>Username:</FormLabel>
@@ -109,7 +111,20 @@ const SignUp = () => {
                         }/>
                 </InputGroup>
             </FormControl>
-            console.log(username + " " + email + " " + password);
+            <FormControl className='signup-form' mt={'-20px'}>
+                <InputGroup>
+                    <Input 
+                        id='verify'
+                        type='password' 
+                        placeholder='Verify password'
+                        value={verify}
+                        onChange = {d => 
+                        setVerify(d.target.value)
+                        }/>
+                </InputGroup>
+                <br/>
+                <p className='errmsg'>{errmsg}</p>
+            </FormControl>
             <Button className='signup-button' width={''} block size ="sm" type="submit" colorScheme={'blue'} onClick={() => registerUser()}>
                 Create Account
             </Button>
