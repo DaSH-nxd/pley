@@ -45,10 +45,11 @@ const SignUp = () => {
 
     const navigate = useNavigate();
 
-    const registerUser = async(e) => {
-        e.preventDefault();
+    const registerUser = () => {
+        //event.preventDefault();
+        console.log("button clicked");
         try {
-            await AuthService.signup(username, email, password).then(
+            AuthService.signup(username, email, password).then(
                 (res) => {
                     navigate("/login");
                     window.location.reload();
@@ -108,20 +109,8 @@ const SignUp = () => {
                         }/>
                 </InputGroup>
             </FormControl>
-            <FormControl className='signup-form' mt={'-40px'} >
-                <FormLabel htmlFor='password'>Verify your password:</FormLabel>
-                <InputGroup>
-                    <Input 
-                        id='verify'
-                        type='password' 
-                        placeholder='Confirm Password'
-                        value={verify}
-                        onChange = {d => 
-                        setVerify(d.target.value)
-                        }/>
-                </InputGroup>
-            </FormControl>
-            <Button className='signup-button' width={''} block size ="sm" type="submit" colorScheme={'blue'} onSubmit={() => registerUser()} >
+            console.log(username + " " + email + " " + password);
+            <Button className='signup-button' width={''} block size ="sm" type="submit" colorScheme={'blue'} onClick={() => registerUser()}>
                 Create Account
             </Button>
         </ChakraProvider>

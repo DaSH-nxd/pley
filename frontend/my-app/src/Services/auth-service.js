@@ -2,7 +2,7 @@ import axios from "axios";
 
 const signup = (username, email, password) => {
     return axios
-        .post("/user/signup", {
+        .post("http://localhost:3002/user/signup", {
             username,
             email,
             password
@@ -19,7 +19,7 @@ const signup = (username, email, password) => {
 
 const login = (username, password) => {
     return axios
-        .post("/user/login", {
+        .post("http://localhost:3002/user/login", {
             username,
             password
         })

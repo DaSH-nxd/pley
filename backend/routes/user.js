@@ -3,6 +3,8 @@ const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
+var cors = require('cors');
+router.use(cors()); 
 
 const User = require('../models/User');
 const auth = require('../middleware/auth');
@@ -172,13 +174,13 @@ router.get(
 );
 
 /**
- * @method - PUT
+ * @method - DELETE
  * @param - /user/delete
  * @description - Delete User if they want to delete their account, must delete with token
  * @visibility - LOGGED IN
  */
 
-router.put(
+router.delete(
     '/delete',
     auth,
     async (req, res) => {
@@ -249,5 +251,16 @@ router.put(
     }
 );
 
+/**
+ * @method - GET
+ * @param - /user/all
+ * @description - testing purposes, seeing all accounts that are in our database
+ * @visibility - ADMIN
+ */
+router.get("/all", function (req, res) {
+    User.find().then((user_data) => {
+        res.json({ result : user_data })
+    });
+});
 
 module.exports = router;
