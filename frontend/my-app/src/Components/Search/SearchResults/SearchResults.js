@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import SearchResult  from './SearchResult/SearchResult';
 import './SearchResults.css';
+import { Text } from '@chakra-ui/react';
 
 export function SearchResults(props) {
     if (!props.businesses || !props.businesses.length) {
-        return (<div></div>);
+        return (<div>
+            <div className = 'no-results'>
+                <Text fontSize='xl'>No Results! Try Broadening your Search Filters!</Text>
+            </div>
+        </div>);
     }
 
     /** 
