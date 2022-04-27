@@ -36,34 +36,34 @@ app.use('/user', user);
 
 app.use('/favorites', favorites);
 
-const post1 = {
+  let post1 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
   
-  const post2 = {
+  let post2 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
   
-  const post3 = {
+  let post3 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
-  const post4 = {
+  let post4 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
-  const post5 = {
+  let post5 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
-  const post6 = {
+  let post6 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
@@ -76,39 +76,39 @@ app.get('/favorites', (req, res) => {
 })
 
 
-const post1 = {
+  post1 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
   
-  const post2 = {
+  post2 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
   
-  const post3 = {
+  post3 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
-  const post4 = {
+  post4 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
-  const post5 = {
+  post5 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
-  const post6 = {
+  post6 = {
     title: "Hello",
     number: "4159906637",
     address: "2210 Haste St"
   }
-  let data= {1:post1, 2:post2, 3:post3, 4:post4, 5:post5, 6:post6}
+  data= {1:post1, 2:post2, 3:post3, 4:post4, 5:post5, 6:post6}
   
   
 app.get('/favorites', (req, res) => {

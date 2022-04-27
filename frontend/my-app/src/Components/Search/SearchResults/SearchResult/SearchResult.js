@@ -5,7 +5,7 @@ import Favorite from './Favorite/Favorite';
 import { Button, IconButton } from '@chakra-ui/react';
 import { farStar as farStar } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import authHeader from "../Services/auth-header.js";
+import authHeader from "./../../../../Services/auth-header.js";
 
 //TODO:set/unset favorites
 
