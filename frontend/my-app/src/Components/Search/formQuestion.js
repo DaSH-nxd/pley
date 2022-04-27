@@ -1,5 +1,5 @@
 import React, { useState, Component } from 'react';
-import { Button, Radio, RadioGroup, Stack } from '@chakra-ui/react'
+import { Button, Radio, RadioGroup, Stack, HStack, VStack, Text } from '@chakra-ui/react'
 //import { useForm, Controller } from "react-hook-form";
 
 import './formQuestion.css'
@@ -57,69 +57,59 @@ function FormQuestion(props){
     return (
       //<form name = "answers" onSubmit={this.handleSubmit}>
       <>
-      <div> 
-          <div>
-          <Stack direction='column'>
-              <p>Are you looking for Boba?</p>
-              <RadioGroup onChange={setBoba} value={boba}>
-                  <Stack direction='row'>
-                    <Radio value= {'0'}>Yes</Radio>
-                    <Radio value={'1'}>No</Radio>
-                  </Stack>
-              </RadioGroup>
-            </Stack>
-          </div>
-
-          <div>
-          <Stack>
-              <p>Are you looking for a place to eat?</p>
+      <VStack className='form-container'>
+        <HStack spacing={'24px'}> 
+            <VStack>
+                <Text fontSize={'xl'}>Are you looking for Boba?</Text>
+                <RadioGroup onChange={setBoba} value={boba}>
+                    <HStack>
+                      <Radio value= {'0'}>Yes</Radio>
+                      <Radio value={'1'}>No</Radio>
+                    </HStack>
+                </RadioGroup>
+              </VStack>
+            <VStack>
+              <Text fontSize={'xl'}>Are you looking for a place to eat?</Text>
               <RadioGroup onChange={setEat} value={eat}>
-                  <Stack direction='row'>
+                  <HStack>
                     <Radio value= {'0'}>Yes</Radio>
                     <Radio value={'1'}>No</Radio>
-                  </Stack>
+                  </HStack>
               </RadioGroup>
-              </Stack>
-          </div>
+            </VStack>
 
-          <div>
-          <Stack>
-            <p>Are you looking for something exciting?</p>
+            <VStack>
+              <Text fontSize={'xl'}>Are you looking for something exciting?</Text>
               <RadioGroup onChange={setExciting} value={exciting}>
-                  <Stack direction='row'>
+                <HStack>
+                  <Radio value= {'0'}>Yes</Radio>
+                  <Radio value={'1'}>No</Radio>
+                </HStack>
+              </RadioGroup>
+            </VStack>
+          </HStack>
+          <HStack spacing={'24px'}>
+            <VStack>
+                <Text fontSize={'xl'}>Are you going out for the night?</Text>
+                <RadioGroup onChange={setNight} value={night}>
+                  <HStack>
                     <Radio value= {'0'}>Yes</Radio>
                     <Radio value={'1'}>No</Radio>
-                  </Stack>
-              </RadioGroup>
-              </Stack>
-          </div>
-          
-          <div>
-          <Stack>
-            <p>Are you going out for the night?</p>
-              <RadioGroup onChange={setNight} value={night}>
-                  <Stack direction='row'>
-                    <Radio value= {'0'}>Yes</Radio>
-                    <Radio value={'1'}>No</Radio>
-                  </Stack>
-              </RadioGroup>
-              </Stack>
-          </div>
-
-          <div>
-          <Stack>
-            <p>What is your budget?</p>
-              <RadioGroup onChange={setBudget} value={budget}>
-                  <Stack>
+                  </HStack>
+                </RadioGroup>
+              </VStack>
+              <VStack>
+                <Text fontSize={'xl'}>What is your budget?</Text>
+                <RadioGroup onChange={setBudget} value={budget}>
+                  <HStack>
                     <Radio value= {'1'}>$</Radio>
                     <Radio value= {'2'}>$$</Radio>
                     <Radio value= {'3'}>$$$</Radio>
-                  </Stack>
-              </RadioGroup>
-              </Stack>
-          </div>
-
-        </div>
+                  </HStack>
+                </RadioGroup>
+              </VStack>
+            </HStack>
+          </VStack>
         <div className= 'button-mid'>
           <Button onClick = {() => submitQuery()} colorScheme='blue'>Submit</Button>
         </div>
