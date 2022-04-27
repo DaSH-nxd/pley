@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const user = require('./routes/user');
-const yelp = require('./routes/yelp');
+// const yelp = require('./routes/yelp');
+const favorites = require('./routes/favorites');
 const InitiateMongoServer = require('./config/db');
 
 
@@ -23,11 +24,13 @@ app.use(bodyParser.json());
  */
 app.use('/user', user);
 
-/**
- * Router = /yelp/*
- * Method - *
- */
-app.use('/yelp', yelp);
+// /**
+//  * Router = /yelp/*
+//  * Method - *
+//  */
+// app.use('/yelp', yelp);
+
+app.use('/favorites', favorites);
 
 
 app.get('/', (req, res) => {

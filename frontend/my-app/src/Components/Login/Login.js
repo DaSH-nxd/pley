@@ -27,15 +27,15 @@ const LogIn = () => {
     }
 
     
-    function handleSubmit() {
-        //event.preventDefault();
+    const handleSubmit = async () => {
+        // e.preventDefault();
         console.log("button clicked");
         try {
             /**
              * await AuthService.login(username, password).then(
                 async () => {
              */
-            AuthService.login(username, password).then(
+            await AuthService.login(username, password).then(
                 () => {
                     //navigate to homepage after login
                     navigate("/");
