@@ -57,6 +57,10 @@ h2 {
     color: #37447E;
 }
 
+.errmsg {
+    
+}
+
 .signup-password-rules {
     display: flex;
     flex-direction: column;
