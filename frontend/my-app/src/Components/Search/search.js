@@ -6,6 +6,7 @@ import SearchResults from './SearchResults/SearchResults';
 //import { useLocation } from 'react-router-dom';
 import { useBusinessSearch } from "../../yelpapi/useBusinessSearch"
 import { Button } from '@chakra-ui/react';
+import axios from 'axios';
 
 const Search = () => {
   //static temporarily just to test if works
@@ -21,6 +22,13 @@ const Search = () => {
   const isLocal = '';
   const [businesses, amountResults, searchParams, setSearchParams] = useBusinessSearch(term, isLocal);
   const [favorites, setFavorites] = useState([]);
+  
+  /*
+  if (!localStorage.clear()) {
+    
+  }
+*/
+
   function search(query) {
     // do events vs business later.
     // console.log('test');
@@ -54,8 +62,17 @@ const Search = () => {
   
   
 
-  const submitFavorites = () => {
+  const onSubmit = () => {
     //make call to axios request here
+    console.log(favorites);
+    const data = {
+      "favorites" : favorites
+    }
+    console.log(data);
+    axios
+      .post("http://localhost:4000/user/favorites")
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
 }
 
   return (
@@ -75,8 +92,8 @@ const Search = () => {
                        unsetFavs={unsetFav}
         />
       </div>
-      <div className= 'button-mid'>
-          <Button onClick = {() => submitFavorites()} colorScheme='blue'>Submit</Button>
+      <div className= 'submit-favs'>
+          <Button onClick = {() => onSubmit()} colorScheme='pink'>Submit Favorites</Button>
       </div>
     </>
   )

@@ -7,6 +7,8 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 
 
+//TODO:set/unset favorites
+
 function SearchResult(props) {
 
     const [isFavorite, setFavorite] = useState(false);
@@ -26,8 +28,13 @@ function SearchResult(props) {
     }
 
     function handleClick() {
-        //Maybe keep track of favorites in array/map to store in backend afterwards?
         setFavorite(!isFavorite);
+        // if the user clicks, and it's a favorite, i add it to the favs array, otherwise i remove it
+        if (!isFavorite) {
+            props.setFavs(props.business);
+        } else if (isFavorite) {
+            props.unsetFavs(props.business);
+        }
     }
 
     const b = props.business;

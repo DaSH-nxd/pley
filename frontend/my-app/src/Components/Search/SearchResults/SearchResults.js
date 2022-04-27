@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import SearchResult  from './SearchResult/SearchResult';
 import './SearchResults.css';
-import { Button } from '@chakra-ui/react';
 
 export function SearchResults(props) {
     if (!props.businesses || !props.businesses.length) {
@@ -15,16 +14,13 @@ export function SearchResults(props) {
         }
     }
     */
-   
-    const searchResults = props.businesses.map(b => <SearchResult key={b.id} business={b}/>)
+
+    const searchResults = props.businesses.map(b => <SearchResult key={b.id} business={b} favorites={props.favorites} setFavs={props.setFavs} unsetFavs={props.unsetFavs}/>)
 
     return (
         <div className = 'search-results'>
             <div className = 'search-results'>
-                {searchResults}    
-            </div>
-            <div className = 'submit-favs'>
-                <Button colorScheme='pink'>Save Favorites to your Profile!</Button>
+                {searchResults}
             </div>
         </div>
     )

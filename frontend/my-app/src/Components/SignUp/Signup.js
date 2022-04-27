@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react"
 import './Signup.css';
 import axios from 'axios';
+import AuthService from "../../Services/auth-service";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -20,6 +22,7 @@ const SignUp = () => {
 
     const [msg, setMsg] = useState("");
 
+    /** 
     const registerUser = () => {
         console.log({
             username,
@@ -38,6 +41,26 @@ const SignUp = () => {
         .then((response) => {console.log(response)})
         .catch((error) => {console.log(error)})
     }
+    */
+
+    const navigate = useNavigate();
+
+    const registerUser = async(e) => {
+        e.preventDefault();
+        try {
+            await AuthService.signup(username, email, password).then(
+                (res) => {
+                    navigate("/login");
+                    window.location.reload();
+                },
+                (error) => {
+                    console.log(error);
+                }
+            )
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <ChakraProvider>
@@ -98,7 +121,7 @@ const SignUp = () => {
                         }/>
                 </InputGroup>
             </FormControl>
-            <Button className='signup-button' width={''} block size ="sm" type="submit" colorScheme={'blue'} onSubmit={registerUser} >
+            <Button className='signup-button' width={''} block size ="sm" type="submit" colorScheme={'blue'} onSubmit={() => registerUser()} >
                 Create Account
             </Button>
         </ChakraProvider>
