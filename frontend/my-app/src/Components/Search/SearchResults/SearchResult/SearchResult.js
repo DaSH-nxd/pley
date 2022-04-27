@@ -2,39 +2,69 @@ import React, { useState, Fragment } from 'react';
 import './SearchResult.css';
 import BusinessRating from './BusinessRating/BusinessRating';
 import Favorite from './Favorite/Favorite';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
-import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
-
+import { Button, IconButton } from '@chakra-ui/react';
+import { farStar as farStar } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import authHeader from "../Services/auth-header.js";
 
 //TODO:set/unset favorites
 
 function SearchResult(props) {
 
-    const [isFavorite, setFavorite] = useState(false);
+    //const [isFavorite, setFavorite] = useState(false);
 
     if (!props.business) {
         return (<div></div>);
     }
 
-    function renderStar() {
-        const icon = isFavorite ? fasStar : farStar;
-        return (
-        <Favorite 
-        fav = {icon}
+    /**
+     * <Button 
+        colorScheme = 'teal'
+        variant='solid'
+        onClick = {() => handleClick()}
+        >Favorite</Button>
+     */
+
+    /**
+     * 
+     *  <IconButton
+        aria-label='Favorite'
+        colorScheme = 'teal'
+        variant='solid'
+        icon={<farStar />}
         onClick = {() => handleClick()}
         />
-        );
-    }
+        );z
+     */
+    
+    function renderStar() {
+        //const icon = isFavorite ? fasStar : farStar;
+        return (
+            <Button 
+            colorScheme = 'teal'
+            variant='solid'
+            size = 'xs'
+            onClick = {() => handleClick()}
+            >Favorite</Button>
+        )}
+    
 
+    
     function handleClick() {
-        setFavorite(!isFavorite);
-        // if the user clicks, and it's a favorite, i add it to the favs array, otherwise i remove it
-        if (!isFavorite) {
-            props.setFavs(props.business);
-        } else if (isFavorite) {
-            props.unsetFavs(props.business);
+        //name, phonenumber, address
+        const b = props.business;
+        const data = {
+            "name": b.name,
+            "number": b.number,
+            "address": b.location.display_address
         }
+        console.log(data);
+        axios
+            .post("http://localhost:4000/favorites/add",
+            authHeader()
+            )
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err));
     }
 
     const b = props.business;

@@ -46,6 +46,7 @@ const Search = () => {
   }
 
   //remove a business object from our favorites array
+  /*
   function unsetFav(business) {
     //copy of favorites
     let favCopy = [...favorites];
@@ -60,7 +61,7 @@ const Search = () => {
       index += 1;
     }
   }
-  
+  */
   
 
   const onSubmit = () => {
@@ -91,7 +92,6 @@ const Search = () => {
         <SearchResults businesses={businesses} 
                        favorites={favorites}
                        setFavs={setFav}
-                       unsetFavs={unsetFav}
         />
       </div>
       <div className= 'submit-favs'>

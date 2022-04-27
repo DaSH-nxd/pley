@@ -47,10 +47,12 @@ function FormQuestion(props){
     }
   }
 
+  /*
   function disableOthers() {
 
   }
-
+  */
+ 
   //if (!props.businesses) {
   //  return ()
   //}
