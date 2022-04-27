@@ -15,7 +15,7 @@ export function SearchResults(props) {
     }
     */
 
-    const searchResults = props.businesses.map(b => <SearchResult key={b.id} business={b} favorites={props.favorites} setFavs={props.setFavs} unsetFavs={props.unsetFavs}/>)
+    const searchResults = props.businesses.map(b => <SearchResult key={b.id} business={b} favorites={props.favorites} setFavs={props.setFavs} />)
 
     return (
         <div className = 'search-results'>
