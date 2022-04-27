@@ -45,11 +45,11 @@ const SignUp = () => {
 
     const navigate = useNavigate();
 
-    const registerUser = () => {
-        //event.preventDefault();
+    const registerUser = async () => {
+        // e.preventDefault();
         console.log("button clicked");
         try {
-            AuthService.signup(username, email, password).then(
+            await AuthService.signup(username, email, password).then(
                 (res) => {
                     navigate("/login");
                     window.location.reload();
