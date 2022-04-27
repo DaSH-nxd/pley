@@ -18,7 +18,8 @@ const Search = () => {
 
   //https://api.yelp.com/v3/businesses/search?location=Berkeley&term=boba
   //temporary initial load until we have a first submit
-  const term = 'location=Berkeley&categories=restaurants&';
+  //bubble tea is an attributes ||| attributes = bubbletea
+  const term = 'location=Berkeley&categories=pizza';
   const isLocal = '';
   const [businesses, amountResults, searchParams, setSearchParams] = useBusinessSearch(term, isLocal);
   const [favorites, setFavorites] = useState([]);
