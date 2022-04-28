@@ -13,6 +13,7 @@ const Entries = ({title, number, address, passToButton}) => {
                 <Text width={'300px'}>{number}</Text>
                 <Text width={'300px'}>{address}</Text>
             </VStack>
+            console.log("before button press");
             <Button background={'lightred'} onClick={() => passToButton()}>x</Button>
         </HStack>
     )

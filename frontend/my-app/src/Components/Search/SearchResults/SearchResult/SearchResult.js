@@ -32,17 +32,25 @@ function SearchResult(props) {
         //name, phonenumber, address
         setDisable(true);
         const b = props.business;
-        const data = {
+        const bodyParameters = {
             "name": b.name,
             "phone_number": b.number,
             "address": b.location.display_address
-        }
-        console.log(data);
+        };
+        console.log(bodyParameters);
+        console.log(authHeader().token);
+        const config = {
+            headers: {
+                Authorization: `Bearer ${authHeader().token}`,
+                Origin: 'localhost',
+                withCredentials: true,
+            }
+        };
+
         axios
-            .post("http://localhost:3002/favorites/add",
-            authHeader().token,
-            data
-            )
+            .post("http://localhost:3002/favorites/add/",
+            config,
+            bodyParameters)
             .then((res) => console.log(res))
             .catch((err) => console.log(err));
     }

@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Entries from './Entries.js'
 import {HStack, VStack} from '@chakra-ui/react';
 import axios from 'axios';
-import AuthHeader from '../../Services/auth-header';
+import authHeader from '../../Services/auth-header';
 
 const EntryContainer = () => {
 
@@ -16,7 +16,11 @@ const EntryContainer = () => {
     // function on fetching the data that has been favorited
     const getFavoritesData = () => {
         axios
-        .get(url, AuthHeader.authHeader().token, data)
+        .get(url, {
+            'Content-Type' : 'application/json',
+            'Accept' : 'application/json',
+            'Authorization' : 'Bearer '
+          })
         //  wait for promise to be resolved using .then, set state variable data to returned data
         .then((data) => setData(data.data))
         .catch((error) => console.log(error));
