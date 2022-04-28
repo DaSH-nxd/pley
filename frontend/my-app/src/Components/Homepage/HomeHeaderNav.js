@@ -52,8 +52,8 @@ const HomeHeaderNav = () => {
                 {currentUser ? (
                     
                     <ButtonGroup className="user-nav" spacing='6'>
-                    <Button onClick={() => logOut()} bg='darkyellow' colorScheme='yellow' size='md' width={'200px'} color='#ffffff'>Sign Out</Button>
-                    <Link href="profile" color="#ffffff"><Button colorScheme='red' size='md' width={'200px'} color='#ffffff'>Profile</Button></Link>
+                    <Button onClick={() => logOut()} bg='darkyellow' colorScheme={'yellow'} size='md' width={'200px'} color='#ffffff'>Sign Out</Button>
+                    <Link href="profile" color="#ffffff"><Button bg='red' colorScheme='red' size='md' width={'200px'} color='#ffffff'>Profile</Button></Link>
                     </ButtonGroup>
                     
                 ) : (
