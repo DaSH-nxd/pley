@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
     Button, 
     ChakraProvider,
@@ -15,35 +15,15 @@ import AuthService from "../../Services/auth-service";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+
+    const [username, setuserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [verify, setVerify] = useState("");
-    const [username, setuserName] = useState("");
-
     const [errmsg, seterrMsg] = useState("");
 
-    /** 
-    const registerUser = () => {
-        console.log({
-            username,
-            email,
-            password
-        })
-        const data = {
-            "username": username,
-            "email": email,
-            "password": password
-        };
-        const url = "http://localhost:4000/user/signup"
-
-        axios
-        .post(url, data)
-        .then((response) => {console.log(response)})
-        .catch((error) => {console.log(error)})
-    }
-    */
-
     const navigate = useNavigate();
+
 
     const registerUser = async () => {
         // e.preventDefault();
@@ -53,14 +33,17 @@ const SignUp = () => {
                 (res) => {
                     navigate("/login");
                     window.location.reload();
-                },
-                (error) => {
-                    seterrMsg(error.response.data.msg);
-                    console.log(error.response.data.msg);
-                }
+                } 
             )
         } catch (error) {
-            console.log(error);
+            console.log(error)
+            if (error.response.data.errors) {
+                seterrMsg('Missing Username, Email, or Password');
+            } else if (error.response.data.msg === 'User Already Exists') {
+                seterrMsg('User Already Exists')
+            } else {
+                seterrMsg('No Server Response')
+            }
         }
     };
 
@@ -73,6 +56,7 @@ const SignUp = () => {
                     <Input 
                     id='username'
                     type='username' 
+                    autoComplete="off"
                     placeholder='Enter your username.'
                     value={username}
                     onChange = {(d) => 
@@ -87,6 +71,7 @@ const SignUp = () => {
                     id='email'
                     type='email' 
                     placeholder='Enter Email'
+                    autoComplete='off'
                     value={email}
                     onChange = {d => 
                     setEmail(d.target.value)
@@ -105,6 +90,7 @@ const SignUp = () => {
                         id='password'
                         type='password' 
                         placeholder='Password'
+                        autoComplete='off'
                         value={password}
                         onChange = {d => 
                         setPassword(d.target.value)
@@ -117,13 +103,16 @@ const SignUp = () => {
                         id='verify'
                         type='password' 
                         placeholder='Verify password'
+                        autoComplete='off'
                         value={verify}
                         onChange = {d => 
                         setVerify(d.target.value)
                         }/>
                 </InputGroup>
                 <br/>
-                <p className='errmsg'>{errmsg}</p>
+                <section> 
+                    <p className='errmsg'>{errmsg}</p>
+                </section>
             </FormControl>
             <Button className='signup-button' width={''} block size ="sm" type="submit" colorScheme={'blue'} onClick={() => registerUser()}>
                 Create Account
