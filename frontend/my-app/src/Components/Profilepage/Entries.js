@@ -6,10 +6,6 @@ const Entries = ({title, number, address, passToButton}) => {
     // title, number, address
     // once user favorites an entry, create new entry with info
 
-    const removeEntry = () => {
-        passToButton();
-    }
-
     return (
         <HStack>
             <VStack  wordBreak={'break-word'}>
@@ -17,7 +13,7 @@ const Entries = ({title, number, address, passToButton}) => {
                 <Text width={'300px'}>{number}</Text>
                 <Text width={'300px'}>{address}</Text>
             </VStack>
-            <Button background={'lightred'} onClick={removeEntry}>x</Button>
+            <Button background={'lightred'} onClick={() => passToButton()}>x</Button>
         </HStack>
     )
 }
