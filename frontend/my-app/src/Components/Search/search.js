@@ -63,6 +63,11 @@ const Search = () => {
   }
   */
   
+  /**
+   *       <div className= 'submit-favs'>
+          <Button onClick = {() => onSubmit()} colorScheme='pink'>Submit Favorites</Button>
+      </div>
+   */
 
   const onSubmit = () => {
     //make call to axios request here
@@ -93,9 +98,6 @@ const Search = () => {
                        favorites={favorites}
                        setFavs={setFav}
         />
-      </div>
-      <div className= 'submit-favs'>
-          <Button onClick = {() => onSubmit()} colorScheme='pink'>Submit Favorites</Button>
       </div>
     </>
   )
