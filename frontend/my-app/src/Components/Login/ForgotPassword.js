@@ -54,12 +54,12 @@ const ForgotPassword = () => {
       
                   <FormControl mt={4}>
                     <FormLabel>Old Password</FormLabel>
-                    <Input placeholder='Old password' type={'password'}/>
+                    <Input placeholder='New password' type={'password'}/>
                   </FormControl>
 
                   <FormControl mt={4}>
                     <FormLabel>New Password</FormLabel>
-                    <Input placeholder='New password' type={'password'}/>
+                    <Input placeholder='Retype new password' type={'password'}/>
                   </FormControl>
                 </ModalBody>
       
