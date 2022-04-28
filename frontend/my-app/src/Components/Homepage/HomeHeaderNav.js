@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import AuthService from '../../Services/auth-service';
 import { Navigate, useNavigate } from "react-router-dom";
 import theme from '../../theme/theme';
+import ColorMode from '../ColorMode/ColorMode';
 
 import {
     Breadcrumb,
@@ -40,7 +41,7 @@ const HomeHeaderNav = () => {
             <Flex>
                 <Breadcrumb className='pley-home-nav' spacing='24px' separator="">
                     <BreadcrumbItem className='pley-nav-link'>
-                        <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                        <BreadcrumbLink href='/'>PLEY</BreadcrumbLink>
                     </BreadcrumbItem>
                     {currentUser && (
                         <BreadcrumbItem className='pley-nav-link'>
@@ -52,12 +53,13 @@ const HomeHeaderNav = () => {
                 {currentUser ? (
                     
                     <ButtonGroup className="user-nav" spacing='6'>
-                    <Button onClick={() => logOut()} bg='darkyellow' colorScheme={'yellow'} size='md' width={'200px'} color='#ffffff'>Sign Out</Button>
-                    <Link href="profile" color="#ffffff"><Button bg='red' _hover={'red'} colorScheme='red' size='md' width={'200px'} color='#ffffff'>Profile</Button></Link>
+                    <ColorMode/>
+                    <Link href="profile" color="#ffffff"><Button bg='red' _hover={'red'} colorScheme='red' size='md' color='#ffffff'>Profile</Button></Link>
                     </ButtonGroup>
                     
                 ) : (
                     <ButtonGroup className="user-nav" spacing='6'>
+                    <ColorMode/>
                     <Link href="login" color="#ffffff"><Button colorScheme='darkblue' bg='darkblue' size='md' width={'200px'} color='#ffffff'>Log In</Button></Link>
                     </ButtonGroup>
                 )}

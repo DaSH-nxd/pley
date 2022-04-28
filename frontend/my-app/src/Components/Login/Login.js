@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import {
     Button, 
-    ChakraProvider,
+    VStack,
     FormControl,
-    FormLabel,
     FormHelperText,
     Input,
     InputGroup,
-    InputLeftElement
 } from "@chakra-ui/react"
 import { EmailIcon } from '@chakra-ui/icons';
 import './LogIn.css';
 import { Navigate, useNavigate } from "react-router-dom";
 import AuthService from "../../Services/auth-service";
-//import { calcRelativeAxisPosition } from 'framer-motion/types/projection/geometry/delta-calc';
-import axios from 'axios';
+
 
 const LogIn = () => {
     const [username, setUsername] = useState("");
@@ -22,19 +19,9 @@ const LogIn = () => {
 
     const navigate = useNavigate();
 
-    function validateForm() {
-        return username.length > 0 && password.length > 0;
-    }
-
     
     const handleSubmit = async () => {
-        // e.preventDefault();
-        //console.log("button clicked");
         try {
-            /**
-             * await AuthService.login(username, password).then(
-                async () => {
-             */
             await AuthService.login(username, password).then(
                 () => {
                     //navigate to homepage after login
@@ -48,30 +35,15 @@ const LogIn = () => {
         } catch(error) {
             console.log(error);
         }
-        /*
-        const data = {
-            
-            username: username,
-            password: password
-        }
-        
-        axios
-            .post('http://localhost:3000/login', data)
-            .then((response) => {
-                const users = response.data
-                    dispatch.
-
-            })
-            */
     }
 
     return (
-        <ChakraProvider>
-            <FormControl className='login-form' onSubmit={handleSubmit}>
+        <VStack spacing={'36px'} >
+            <FormControl w={'400px'} onSubmit={handleSubmit}>
                 <InputGroup>
                     <Input 
                     id='username'
-                    type='username' 
+                    type='text' 
                     placeholder='Enter username'
                     value={username}
                     border={'2px solid black'}
@@ -82,9 +54,8 @@ const LogIn = () => {
                 </InputGroup>
                 <FormHelperText marginTop={'15px'}>Enter your username</FormHelperText>
             </FormControl>
-    
+
             <FormControl  className='login-form' onSubmit={handleSubmit}>
-                {/* <FormLabel htmlFor='password'>Password</FormLabel> */}
                 <InputGroup>
                     <Input 
                         id='password'
@@ -97,12 +68,12 @@ const LogIn = () => {
                         setPassword(d.target.value)
                         }/>
                     </InputGroup>
-                <FormHelperText marginTop={'15px'}>Enter your password</FormHelperText>
+                <FormHelperText>Enter your password</FormHelperText>
             </FormControl>
-            <Button onClick = {() => handleSubmit()} color='white' bg='blue' colorScheme={'lightblue'} className='login-button' width={''} block size ="sm" type="submit" disabled={!validateForm()}>
+            <Button onClick = {() => handleSubmit()} color='white' bg='lightblue' colorScheme={'lightblue'} className='login-button'  width={''} block size ="sm" type="submit" >
                 Login
             </Button>
-        </ChakraProvider>
+        </VStack>
     );
 }
 
