@@ -33,8 +33,8 @@ router.post('/add', auth, async (req, res) => {
         console.log("sendin back0");
         const user = await User.findById(req.user.id);
         console.log("sendin back1");
-        const favorite_data = JSON.stringify(req.body.data);
-        user.favorites.push(req.body.data);
+        // const favorite_data = JSON.stringify(req.body.place);
+        user.favorites.push(req.body.place);
         await user.save();
         res.send({
             "favorites":
