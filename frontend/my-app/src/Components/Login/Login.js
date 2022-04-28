@@ -68,36 +68,38 @@ const LogIn = () => {
     return (
         <ChakraProvider>
             <FormControl className='login-form' onSubmit={handleSubmit}>
-                {/* <FormLabel htmlFor='email'>Email address</FormLabel> */}
                 <InputGroup>
-                    <InputLeftElement pointerEvents='none' children={<EmailIcon/>}/>
                     <Input 
                     id='username'
                     type='username' 
                     placeholder='Enter username'
                     value={username}
+                    border={'2px solid black'}
+                    boxShadow={'0 0 3px'}
                     onChange = {(d) => 
                     setUsername(d.target.value)
                     }/>
                 </InputGroup>
-                <FormHelperText>We'll never share your email.</FormHelperText>
+                <FormHelperText marginTop={'15px'}>Enter your username</FormHelperText>
             </FormControl>
     
-            <FormControl className='login-form' onSubmit={handleSubmit}>
+            <FormControl  className='login-form' onSubmit={handleSubmit}>
                 {/* <FormLabel htmlFor='password'>Password</FormLabel> */}
                 <InputGroup>
                     <Input 
                         id='password'
                         type='password' 
                         placeholder='Password'
+                        border={'2px solid black'}
+                        boxShadow={'0 0 3px'}
                         value={password}
                         onChange = {(d) => 
                         setPassword(d.target.value)
                         }/>
                     </InputGroup>
-                <FormHelperText>Nor your password.</FormHelperText>
+                <FormHelperText marginTop={'15px'}>Enter your password</FormHelperText>
             </FormControl>
-            <Button onClick = {() => handleSubmit()} className='login-button' width={''} block size ="sm" type="submit" disabled={!validateForm()}>
+            <Button onClick = {() => handleSubmit()} color='white' bg='blue' colorScheme={'lightblue'} className='login-button' width={''} block size ="sm" type="submit" disabled={!validateForm()}>
                 Login
             </Button>
         </ChakraProvider>

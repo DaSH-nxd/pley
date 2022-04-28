@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileHeader from "./ProfileHeader.js";
 import EntryContainer from "./EntryContainer.js";
-import HomeHeaderNav from '../Homepage/HomeHeaderNav';
+import ProfileHeaderNav from './ProfileHeaderNav';
 import Delete from './DeleteProfile'
 import {Divider} from '@chakra-ui/react';
 
@@ -9,7 +9,7 @@ function Profile() {
 
     return (
         <>
-        <HomeHeaderNav></HomeHeaderNav>
+        <ProfileHeaderNav></ProfileHeaderNav>
         <br/>
         <ProfileHeader/>
         <Divider/>
