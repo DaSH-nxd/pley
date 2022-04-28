@@ -1,7 +1,7 @@
 import './Home.css';
 import React, { useState, useEffect } from 'react';
 import AuthService from '../../Services/auth-service';
-
+import { Navigate, useNavigate } from "react-router-dom";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -15,6 +15,7 @@ import {
 
 const HomeHeaderNav = () => {
     const [currentUser, setCurrentUser] = useState(undefined);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
@@ -26,6 +27,9 @@ const HomeHeaderNav = () => {
 
     const logOut = () => {
         AuthService.logout();
+        console.log(AuthService.getCurrentUser());
+        navigate("/");
+        window.location.reload();
     };
 
     return (

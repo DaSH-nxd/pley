@@ -29,7 +29,7 @@ const LogIn = () => {
     
     const handleSubmit = async () => {
         // e.preventDefault();
-        console.log("button clicked");
+        //console.log("button clicked");
         try {
             /**
              * await AuthService.login(username, password).then(
