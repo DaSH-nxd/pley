@@ -18,7 +18,6 @@ function Profile() {
         headers : {
             "token" : AuthService.getCurrentUser()
         }
-
     };
 
     // function on fetching the data that has been favorited
@@ -38,7 +37,7 @@ function Profile() {
         getFavoritesData();
       }, [data, isDeleteEntry]);
 
-    const handleClick = (name, phone_number, address) => {
+    const handleDeleteEntryClick = (name, phone_number, address) => {
         console.log(name);
         console.log(phone_number);
         console.log(address);
@@ -69,6 +68,18 @@ function Profile() {
         })
         .catch((error) => console.log("error with axios delete"));
     }
+
+    const handleDeleteAccClick = () => {
+        axios
+        .delete(`${base_url}/deleteall`, {
+            "token" : AuthService.getCurrentUser()
+        })
+        .then((res) => {
+            setData(res.data.favorites);
+        })
+        .catch((error) => console.log("error with axios delete"));
+    }
+
     return (
         <>
         <ProfileHeaderNav></ProfileHeaderNav>
@@ -76,7 +87,7 @@ function Profile() {
         <ProfileHeader/>
         <Divider/>
         <br/>
-        <EntryContainer favorites={data} onClick={handleClick}/>
+        <EntryContainer favorites={data} onDeleteEntryClick={handleDeleteEntryClick}/>
         <br/>
         </>
     );

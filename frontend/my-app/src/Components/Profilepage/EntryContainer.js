@@ -8,7 +8,7 @@ const EntryContainer = (props) => {
         <VStack className='entry-container'>
             {
                 props.favorites?.map(d => 
-                <Entries name={d.name} phone_number={d.phone_number} address={d.address} passToButton={props.onClick}/>
+                <Entries name={d.name} phone_number={d.phone_number} address={d.address} passToButton={props.onDeleteEntryClick}/>
                 )
             }
             <Button bg='red' colorScheme='red'>
