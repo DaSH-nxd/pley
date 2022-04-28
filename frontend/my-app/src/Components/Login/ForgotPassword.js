@@ -16,25 +16,32 @@ import {
   } from '@chakra-ui/react'
 
 const ForgotPassword = () => {
-        const { isOpen, onOpen, onClose } = useDisclosure()
+    const OverlayOne = () => (
+        <ModalOverlay
+          bg='blackAlpha.1000'
+          backdropFilter='blur(10px) hue-rotate(90deg)'
+        />
+      )
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [overlay, setOverlay] = React.useState(<OverlayOne />)
+
       
         const initialRef = React.useRef()
       
-        const OverlayOne = () => (
-            <ModalOverlay
-              bg='blackAlpha.300'
-              backdropFilter='blur(10px) hue-rotate(90deg)'
-            />
-          )
         return (
           <>
-            <Text onClick={onOpen}>Forgot Password?</Text>
+            <Text onClick={() => {
+                setOverlay(<OverlayOne/>)
+                onOpen()}}>Forgot Password?</Text>
+                
       
             <Modal
               initialFocusRef={initialRef}
+              isCentered
               isOpen={isOpen}
               onClose={onClose}
             >
+            {overlay}
               <ModalOverlay />
               <ModalContent>
                 <ModalHeader>Change Password</ModalHeader>
