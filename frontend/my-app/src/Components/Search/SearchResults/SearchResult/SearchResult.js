@@ -3,47 +3,25 @@ import './SearchResult.css';
 import BusinessRating from './BusinessRating/BusinessRating';
 import Favorite from './Favorite/Favorite';
 import { Button, IconButton } from '@chakra-ui/react';
-import { farStar as farStar } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import authHeader from "./../../../../Services/auth-header.js";
 
-//TODO:set/unset favorites
 
 function SearchResult(props) {
 
-    //const [isFavorite, setFavorite] = useState(false);
-
+    const [disable, setDisable] = useState(false);
     if (!props.business) {
         return (<div></div>);
     }
 
-    /**
-     * <Button 
-        colorScheme = 'teal'
-        variant='solid'
-        onClick = {() => handleClick()}
-        >Favorite</Button>
-     */
+    function DisableAndSend() {
 
-    /**
-     * 
-     *  <IconButton
-        aria-label='Favorite'
-        colorScheme = 'teal'
-        variant='solid'
-        icon={<farStar />}
-        onClick = {() => handleClick()}
-        />
-        );z
-     */
-    
-    function renderStar() {
-        //const icon = isFavorite ? fasStar : farStar;
         return (
             <Button 
             colorScheme = 'teal'
             variant='solid'
             size = 'xs'
+            isDisabled={disable}
             onClick = {() => handleClick()}
             >Favorite</Button>
         )}
@@ -52,6 +30,7 @@ function SearchResult(props) {
     
     function handleClick() {
         //name, phonenumber, address
+        setDisable(true);
         const b = props.business;
         const data = {
             "name": b.name,
@@ -85,7 +64,7 @@ function SearchResult(props) {
                     {b.name}
                 </div>
                 <div className = 'fav-tag'>
-                    { renderStar() }
+                    { DisableAndSend() }
                 </div>
                 <BusinessRating rating = { b.rating }/>
                 <div>
