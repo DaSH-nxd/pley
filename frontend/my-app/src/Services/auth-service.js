@@ -10,7 +10,7 @@ const signup = (username, email, password) => {
         //Might not need the access token until login, commenting for now.
         .then((res) => {
             if (res.data.token) {
-                localStorage.setItem("user", JSON.stringify(res.data));
+                localStorage.setItem("user", res.data.token);
             }
             return res.data;
         });
@@ -25,7 +25,7 @@ const login = (username, password) => {
         })
         .then((res) => {
             if (res.data.token) {
-                localStorage.setItem("user", JSON.stringify(res.data));
+                localStorage.setItem("user", res.data.token);
                 //localStorage.setItem("id", JSON.stringify(res.data));
             }
             return res.data;
@@ -37,7 +37,7 @@ const logout = () => {
 };
 
 const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem("user"));
+    return localStorage.getItem("user");
     //return JSON.parse(localStorage.getItem("id"));
 }
 

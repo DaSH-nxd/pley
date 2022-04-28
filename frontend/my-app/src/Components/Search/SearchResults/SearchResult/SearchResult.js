@@ -4,7 +4,7 @@ import BusinessRating from './BusinessRating/BusinessRating';
 import Favorite from './Favorite/Favorite';
 import { Button, IconButton } from '@chakra-ui/react';
 import axios from 'axios';
-import authHeader from "./../../../../Services/auth-header.js";
+import authService from "./../../../../Services/auth-service";
 
 
 function SearchResult(props) {
@@ -32,27 +32,34 @@ function SearchResult(props) {
         //name, phonenumber, address
         setDisable(true);
         const b = props.business;
+
+
+
+
+
         const bodyParameters = {
-            "name": b.name,
-            "phone_number": b.number,
-            "address": b.location.display_address
+            place: {
+                "name": b.name,
+                "phone_number": b.phone,
+                "address": b.location.display_address,
+            }
         };
-        console.log(bodyParameters);
-        console.log(authHeader().token);
         const config = {
-            headers: {
-                Authorization: `Bearer ${authHeader().token}`,
-                Origin: 'localhost',
-                withCredentials: true,
+            headers : {
+                "token" : authService.getCurrentUser()
             }
         };
 
+
+        console.log(bodyParameters);
+        console.log(authService.getCurrentUser());
+
         axios
-            .post("http://localhost:3002/favorites/add/",
-            config,
-            bodyParameters)
+            .post("http://localhost:3002/favorites/add",
+            bodyParameters,
+            config)
             .then((res) => console.log(res))
-            .catch((err) => console.log(err));
+            .catch((err) => console.log("elo govna"));
     }
 
     const b = props.business;

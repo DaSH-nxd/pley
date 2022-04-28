@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-var cors = require('cors');
-router.use(cors()); 
 
 const User = require('../models/User');
 const auth = require('../middleware/auth');
@@ -16,7 +14,10 @@ router.get('/list', auth, async (req, res) => {
     try {
         // req.user is getting fetched from Middleware after token authentication
         const user = await User.findById(req.user.id);
-        res.send(user.favorites);
+        res.send({
+            "favorites":
+                user.favorites
+        });
     } catch (e) {
       res.send({ message: 'Error in Fetching user' });
     }
@@ -29,11 +30,17 @@ router.get('/list', auth, async (req, res) => {
  */
 router.post('/add', auth, async (req, res) => {
     try {
+        console.log("sendin back0");
         const user = await User.findById(req.user.id);
+        console.log("sendin back1");
         const favorite_data = JSON.stringify(req.body.data);
         user.favorites.push(req.body.data);
         await user.save();
-        res.send(user.favorites);
+        res.send({
+            "favorites":
+                user.favorites
+        });
+        console.log("sendin back2");
     } catch (e) {
       res.send(e);
     }
