@@ -55,13 +55,14 @@ function SearchResult(props) {
         const b = props.business;
         const data = {
             "name": b.name,
-            "number": b.number,
+            "phone_number": b.number,
             "address": b.location.display_address
         }
         console.log(data);
         axios
-            .post("http://localhost:4000/favorites/add",
-            authHeader()
+            .post("http://localhost:3002/favorites/add",
+            authHeader().token,
+            data
             )
             .then((res) => console.log(res))
             .catch((err) => console.log(err));
