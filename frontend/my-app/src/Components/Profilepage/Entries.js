@@ -7,17 +7,17 @@ const Entries = ({title, number, address}) => {
     // once user favorites an entry, create new entry with info
 
     const removeEntry = () => {
-
+        
     }
 
     return (
         <HStack>
-            <VStack align={"center"} classname="entry-events">
-                <Text fontSize={'5xl'}>{title}</Text>
-                <Text>{number}</Text>
-                <Text>{address}</Text>
+            <VStack  wordBreak={'break-word'}>
+                <b><Text width={'300px'} wordBreak={'break-word'} fontSize={'2xl'}>{title}</Text></b>
+                <Text width={'300px'}>{number}</Text>
+                <Text width={'300px'}>{address}</Text>
             </VStack>
-            <Button onClick={removeEntry}>x</Button>
+            <Button background={'red'} onClick={removeEntry}>x</Button>
         </HStack>
     )
 }
