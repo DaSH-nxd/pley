@@ -17,7 +17,7 @@ const Entries = ({title, number, address}) => {
                 <Text width={'300px'}>{number}</Text>
                 <Text width={'300px'}>{address}</Text>
             </VStack>
-            <Button background={'red'} onClick={removeEntry}>x</Button>
+            <Button background={'lightred'} onClick={removeEntry}>x</Button>
         </HStack>
     )
 }
