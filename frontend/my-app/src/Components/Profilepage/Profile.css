@@ -1,33 +1,17 @@
 
-.user-name {
-  display: flex;
-  justify-content: left;
-  font-size: x-large;
-}
-.user-description {
-  text-align: left;
-}
-
-.visited-places {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 100px;
-  
-}
-
-.img-place {
-  flex: 0 0 26%;
-  margin-top: 15px;
-}
 
 .entry-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .entry-events {
-  
+
 }
 
 .delete-button {
+  display: flex;
+  justify-content: center;
   margin: 50px;
 }

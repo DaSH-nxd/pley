@@ -10,7 +10,7 @@ const EntryContainer = () => {
     const [isDeleteEntry, setIsDeleteEntry] = useState(true);
 
     // url on where entry has been favorited;
-    const url = "http://localhost:4000/favorites";
+    const url = "http://localhost:3002/favorites"
 
     // function on fetching the data that has been favorited
     const getFavoritesData = () => {

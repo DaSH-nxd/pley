@@ -77,34 +77,34 @@ app.get('/favorites', (req, res) => {
 
 
   post1 = {
-    title: "Hello",
+    title: "Hello World",
     number: "4159906637",
     address: "2210 Haste St"
   }
   
   post2 = {
-    title: "Hello",
+    title: "It's your lovely restaurant Pho le",
     number: "4159906637",
     address: "2210 Haste St"
   }
   
   post3 = {
-    title: "Hello",
+    title: "Sheeeeeeeeeeeeeeeeeeeesh",
     number: "4159906637",
     address: "2210 Haste St"
   }
   post4 = {
-    title: "Hello",
+    title: "HelloHelloHelloHelloHelloHelloHello",
     number: "4159906637",
     address: "2210 Haste St"
   }
   post5 = {
-    title: "Hello",
+    title: "HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello",
     number: "4159906637",
     address: "2210 Haste St"
   }
   post6 = {
-    title: "Hello",
+    title: "HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello",
     number: "4159906637",
     address: "2210 Haste St"
   }
