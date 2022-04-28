@@ -7,9 +7,10 @@ import axios from 'axios'
 const EntryContainer = () => {
 
     const [data, setData] = useState([]);
+    const [isDeleteEntry, setIsDeleteEntry] = useState(true);
 
     // url on where entry has been favorited;
-    const url = "http://localhost:4000/favorites"
+    const url = "http://localhost:4000/favorites";
 
     // function on fetching the data that has been favorited
     const getFavoritesData = () => {
@@ -19,16 +20,20 @@ const EntryContainer = () => {
         .then((data) => setData(data.data))
         .catch((error) => console.log(error));
       };
+
       useEffect(() => {
         getFavoritesData();
-      }, );
+      }, [data, isDeleteEntry]);
 
+    const handleClick = () => {
+        setIsDeleteEntry(!isDeleteEntry);
+    }
 
     return (
         <VStack className='entry-container'>
             {
                 data.map(d => 
-                <Entries title={d.title} number={d.number} address={d.address} />
+                <Entries title={d.title} number={d.number} address={d.address} passToButton={() => handleClick()}/>
                 )
             }
         </VStack>
