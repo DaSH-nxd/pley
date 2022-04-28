@@ -9,6 +9,7 @@ import {
     Link,
     Spacer
   } from '@chakra-ui/react';
+import ColorMode from '../ColorMode/ColorMode';
 
 const LoginNav = () => {
     return (
@@ -16,6 +17,7 @@ const LoginNav = () => {
             <Breadcrumb className='pley-login-nav' spacing='24px' separator="">
                 <BreadcrumbItem className='pley-nav-link'>
                     <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                    <ColorMode/>
                 </BreadcrumbItem>
             </Breadcrumb>
         </Flex>

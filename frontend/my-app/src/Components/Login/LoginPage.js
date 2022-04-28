@@ -1,7 +1,8 @@
 import React from 'react';
 import LoginContainer from './LoginContainer';
-import './LogIn.css';
+// import './LogIn.css';
 import LoginNav from './LoginNav';
+// import ColorMode from '../ColorMode/ColorMode';
 
 const LoginPage = () => {
     return (

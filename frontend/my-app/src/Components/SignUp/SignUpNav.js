@@ -12,6 +12,7 @@ const SignUpNav = () => {
             <Breadcrumb className='pley-signup-nav' spacing='24px' separator="">
                 <BreadcrumbItem className='pley-nav-link'>
                     <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+
                 </BreadcrumbItem>
             </Breadcrumb>
         </Flex>

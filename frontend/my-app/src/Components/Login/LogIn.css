@@ -1,16 +1,5 @@
-h2 {
-    width: 100%; 
-    max-width: 400px;
-    text-align: center; 
-    border-bottom: 1px solid #000; 
-    opacity: 0.35;
-    line-height: 0.1em;
-    margin: 10px 0 20px; 
- } 
- 
  h2 span { 
-     background:#ffffff; 
-     padding:0 10px; 
+     /* padding:0 10px;  */
  }
 
  .pley-nav-link {
@@ -19,12 +8,6 @@ h2 {
 
  .pley-login-nav {
      padding: 1em;
- }
-
- .login-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
  }
 
 .login-container {

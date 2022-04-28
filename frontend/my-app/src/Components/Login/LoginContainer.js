@@ -3,7 +3,7 @@ import LogIn from './Login';
 import Line from './Line';
 import ForgotPassword from './ForgotPassword';
 import { Link } from '@chakra-ui/react';
-import './LogIn.css';
+// import './LogIn.css';
 
 const LoginContainer = () => {
     return (
@@ -15,7 +15,7 @@ const LoginContainer = () => {
             <br/>
             <Line/>
             <br/> 
-            <a href="#"><ForgotPassword/></a>
+            <Link><ForgotPassword/></Link>
             <br/>
             <p>Don’t have an account? <Link color="blue" href='./signup'>Sign Up</Link></p>
         </div>

@@ -1,12 +1,14 @@
-import './LogIn.css'
+import {Text, HStack, Divider} from '@chakra-ui/react'
 
 const Line = () => {
     return (
-        <h2>
-            <span>
+        <HStack>
+            <Divider orientation='horizontal'/>
+            <Text>
                 OR
-            </span>
-        </h2>
+            </Text>
+            <Divider/>
+        </HStack>
     )
 }
 
