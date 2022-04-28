@@ -1,4 +1,4 @@
-import React from 'react';
+import {useEffect, useState} from 'react';
 import {
     useColorMode, 
     useColorModeValue,
@@ -8,9 +8,17 @@ import {
 } from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
-const ColorMode = (props) => {
-    const { colorMode, toggleColorMode } = useColorMode()
+const ColorMode = () => {
+    const [theme, setTheme] = useState('light');
+    const { colorMode, toggleColorMode } = useColorMode();
     const text = useColorModeValue('dark', 'light')
+    
+    const handleChange = () => {
+        localStorage.setItem("theme", text)
+    }
+
+    console.log(localStorage.getItem('theme'))
+
     const SwitchIcon = useColorModeValue(FaMoon, FaSun);
     return (
         <IconButton
@@ -22,7 +30,6 @@ const ColorMode = (props) => {
         onClick={toggleColorMode}
         icon={SwitchIcon()}
         aria-Label={`Switch to ${text} mode`}
-        {...props}
         />
     );
   }
