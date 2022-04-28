@@ -9,13 +9,9 @@ import {
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 const ColorMode = () => {
-    const [theme, setTheme] = useState('');
     const { colorMode, toggleColorMode } = useColorMode();
     const text = useColorModeValue('dark', 'light')
     const SwitchIcon = useColorModeValue(FaMoon, FaSun);
-
-    const handleChange = () => {
-    }
 
     return (
         <IconButton
@@ -24,7 +20,7 @@ const ColorMode = () => {
         variant='ghost'
         color='current'
         marginLeft='2'
-        onClick={handleChange}
+        onClick={toggleColorMode}
         icon={SwitchIcon()}
         aria-Label={`Switch to ${text} mode`}
         />
