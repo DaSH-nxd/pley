@@ -38,17 +38,22 @@ function Profile() {
       }, [data, isDeleteEntry]);
 
     const handleClick = (name, phone_number, address) => {
+        console.log(name);
+        console.log(phone_number);
+        console.log(address);
         axios
-        .delete(`${base_url}/delete`, {
-            "name": name,
-            "phone_number": phone_number,
-            "address": address
-        }, config)
+        .delete(`${base_url}/delete`, config, {
+            "data": {
+                "name": name,
+                "phone_number": phone_number,
+                "address": address
+            }
+        })
         .then((res) => {
-            // console.log(res.data.favorites);
+            console.log(res.data.favorites);
             setData(res.data.favorites);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log("error with axios delete"));
     }
     return (
         <>
