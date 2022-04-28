@@ -90,7 +90,7 @@ router.post(
 router.post(
     '/login',
     [
-        check('username', 'Please Enter a Valid Username').not().isEmpty(),
+        check(' username', 'Please Enter a Valid Username').not().isEmpty(),
         check('password', 'Please enter a valid password').isLength({
             min : 8,
         }),

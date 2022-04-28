@@ -52,6 +52,42 @@ router.post('/add', auth, async (req, res) => {
  * @description - delete an item from the current user's favorites
  */
 
+
+ router.delete('/delete', auth, async (req, res) => {
+  try {
+      // req.user is getting fetched from Middleware after token authentication
+      console.log("AHHHHHHHHHHH");
+      const user = await User.findById(req.user.id);
+      console.log("USER ID ACQUIRED");
+      let favsList = user.favorites;
+      console.log("USER FAVORITES ACQUIRED");
+      console.log(req.body);
+      //console.log(req.body.data);
+      //console.log(req.body.data.name);
+      let busName = req.body.name;
+      console.log("BUSINESS NAME ACQUIRED");
+      //let index = 0;
+      console.log("before for loop ");
+      for ( let i = 0; i < favsList.length; i++) {
+        if (favsList[i].name === busName) {
+          user.favorites.splice(i, 1);
+          break;
+        }
+      }
+      console.log("right after loop");
+      //user.favorites.pull(req.body.data);
+      await user.save();
+      res.send({
+          "favorites":
+              user.favorites
+      });
+  } catch (e) {
+    console.log('erroring in delete');
+    res.send(e);
+  }
+});
+
+/*
 router.delete('/delete', auth, async (req, res) => {
     try {
         // req.user is getting fetched from Middleware after token authentication
@@ -66,7 +102,7 @@ router.delete('/delete', auth, async (req, res) => {
       res.send({ message: 'Error in Fetching user' });
     }
 });
-
+*/
 /**
  * @method - DELETE
  * @param - /favorites/deleteall

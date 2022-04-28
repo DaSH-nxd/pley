@@ -18,6 +18,7 @@ function Profile() {
         headers : {
             "token" : AuthService.getCurrentUser()
         }
+
     };
 
     // function on fetching the data that has been favorited
@@ -41,16 +42,29 @@ function Profile() {
         console.log(name);
         console.log(phone_number);
         console.log(address);
-        axios
-        .delete(`${base_url}/delete`, config, {
-            "data": {
+        const options = {
+            headers: {
+                "token" : AuthService.getCurrentUser()
+            },
+            data : {
                 "name": name,
                 "phone_number": phone_number,
                 "address": address
             }
-        })
+        }
+        /*
+        const data = {
+            data : {
+                "name": name,
+                "phone_number": phone_number,
+                "address": address
+            }
+        };
+        */
+        axios
+        .delete(`${base_url}/delete`, options)
         .then((res) => {
-            console.log(res.data.favorites);
+            console.log(res.data);
             setData(res.data.favorites);
         })
         .catch((error) => console.log("error with axios delete"));
