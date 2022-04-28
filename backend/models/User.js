@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const arrayUniquePlugin = require('mongoose-unique-array');
 
 const UserSchema = mongoose.Schema({
     username : {
@@ -20,12 +19,9 @@ const UserSchema = mongoose.Schema({
     },
     favorites : {
         type: Array,
-        required: false,
-        unique: true,
+        required: false
     }
 });
-
-UserSchema.plugin(arrayUniquePlugin);
 
 // export model user with UserSchema
 module.exports = mongoose.model('user', UserSchema);

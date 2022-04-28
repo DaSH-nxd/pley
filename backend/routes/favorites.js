@@ -29,15 +29,12 @@ router.get('/list', auth, async (req, res) => {
  */
 router.post('/add', auth, async (req, res) => {
     try {
-        // req.user is getting fetched from Middleware after token authentication
         const user = await User.findById(req.user.id);
-        // User.updateOne(user, {$addToSet: {favorites: favorite_data}});
-        // if (!user.favorites.includes(req.body.data)) {
-        //     user.favorites.push(req.body.data);
-        //     await user.save();
-        // }
-        user.favorites.push(req.body.data);
-        await user.save();
+        const favorite_data = JSON.stringify(req.body.data);
+        if (!user.favorites.includes(favorite_data)) {
+            user.favorites.push(req.body.data);
+            await user.save();
+        }
         res.send(user.favorites);
     } catch (e) {
       res.send(e);

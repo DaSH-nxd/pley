@@ -9,7 +9,7 @@ const signup = (username, email, password) => {
         })
         //Might not need the access token until login, commenting for now.
         .then((res) => {
-            if (res.data.accessToken) {
+            if (res.data.token) {
                 localStorage.setItem("user", JSON.stringify(res.data));
             }
             return res.data;
@@ -24,7 +24,7 @@ const login = (username, password) => {
             password
         })
         .then((res) => {
-            if (res.data.accessToken) {
+            if (res.data.token) {
                 localStorage.setItem("user", JSON.stringify(res.data));
                 //localStorage.setItem("id", JSON.stringify(res.data));
             }
