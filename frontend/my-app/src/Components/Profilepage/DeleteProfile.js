@@ -1,11 +1,52 @@
 import React from 'react';
-import {Button} from '@chakra-ui/react'
+import {  AlertDialog,
+    AlertDialogBody,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogContent,
+    AlertDialogOverlay,
+    Button,
+    useDisclosure
+    
+} from '@chakra-ui/react'
 
 const Delete = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const cancelRef = React.useRef()
+  
     return (
-        <Button bg="#E8403D"className="delete-button">
-            Delete Account
+      <>
+        <Button colorScheme='red' onClick={onOpen}>
+          Delete Account
         </Button>
+  
+        <AlertDialog
+          isOpen={isOpen}
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+        >
+          <AlertDialogOverlay>
+            <AlertDialogContent>
+              <AlertDialogHeader fontSize='lg' fontWeight='bold'>
+                Delete Customer
+              </AlertDialogHeader>
+  
+              <AlertDialogBody>
+                Are you sure? You can't undo this action afterwards.
+              </AlertDialogBody>
+  
+              <AlertDialogFooter>
+                <Button ref={cancelRef} onClick={onClose}>
+                  Cancel
+                </Button>
+                <Button colorScheme='red' onClick={onClose} ml={3}>
+                  Delete
+                </Button>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogOverlay>
+        </AlertDialog>
+      </>
     )
 }
 

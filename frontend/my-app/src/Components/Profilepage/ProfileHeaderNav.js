@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import theme from '../../theme/theme';
 import ForgotPassword from './ProfileForgetPassword';
 import ColorMode from '../ColorMode/ColorMode';
+import Delete from './DeleteProfile';
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -41,8 +42,10 @@ import {
 const ProfileHeaderNav = () => {
     const [currentUser, setCurrentUser] = useState(undefined);
     const navigate = useNavigate();
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen, onOpen, onToggle, onClose } = useDisclosure();
     const firstField = React.useRef()
+    
+    const { isDelete, onDelete, onDel} = useDisclosure();
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
@@ -75,7 +78,7 @@ const ProfileHeaderNav = () => {
                 <Spacer/>
                 <ButtonGroup className="user-nav" spacing='6'>
                     <ColorMode/>
-                    <Button bg='red' colorScheme='teal' onClick={onOpen}>
+                    <Button bg='red' colorScheme='teal' onClick={onToggle}>
                         Profile
                     </Button>
                     <Drawer
@@ -100,6 +103,11 @@ const ProfileHeaderNav = () => {
                                 </Link>
                             </VStack>
                         </DrawerBody>
+                        <DrawerFooter borderTopWidth='1px' justifyContent={'center'}>
+                            <VStack spacing='30px'>
+                                <Delete/>
+                            </VStack>
+                        </DrawerFooter>
                         </DrawerContent>
                     </Drawer>
                 </ButtonGroup>

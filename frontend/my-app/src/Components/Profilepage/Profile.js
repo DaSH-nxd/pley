@@ -48,7 +48,6 @@ function Profile() {
         <br/>
         <EntryContainer favorites={data} onClick={() => handleClick()}/>
         <br/>
-        <Delete/>
         </>
     );
 }
