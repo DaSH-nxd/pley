@@ -31,10 +31,8 @@ router.post('/add', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
         const favorite_data = JSON.stringify(req.body.data);
-        if (!user.favorites.includes(favorite_data)) {
-            user.favorites.push(req.body.data);
-            await user.save();
-        }
+        user.favorites.push(req.body.data);
+        await user.save();
         res.send(user.favorites);
     } catch (e) {
       res.send(e);
