@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeHeaderNav from './HomeHeaderNav';
 import HomeContainer from './HomeContainer';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, Text } from '@chakra-ui/react'
 import './Home.css';
 
 const Homepage = () => {
@@ -9,7 +9,7 @@ const Homepage = () => {
         <div>
             <ChakraProvider>
                 <HomeHeaderNav/>
-                <h1 className='homepage-header'><b>PLEY</b></h1>
+                <Text letterSpacing={'10px'} className='homepage-header'><b>PLEY</b></Text>
                 <HomeContainer/>
             </ChakraProvider>
         </div>

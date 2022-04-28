@@ -1,14 +1,26 @@
 import './Home.css'
 import React from 'react';
-import { Text } from '@chakra-ui/react';
+import ReactDOM from 'react-dom'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
-const Texts = () => {
+import { 
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbSeparator,
+    Button,
+    Text, 
+    VStack
+} from '@chakra-ui/react';
+import { HashLink as Link } from 'react-router-hash-link';
+const Texts = (href) => {
     return (
-        <div className='homepage-text-container'>
+        <VStack spacing={'20px'} className='homepage-text-container'>
             <Text fontSize={'2xl'} className='homepage-text'>
                 Pley connects Berkeley students to local restaurants, bars, dating spots, and even boba hot spots!
             </Text>
-        </div>
+            <AnchorLink href={'#' + href}>Click me</AnchorLink>
+        </VStack>
     )
 }
 

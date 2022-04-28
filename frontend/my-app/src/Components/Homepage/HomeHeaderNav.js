@@ -41,7 +41,7 @@ const HomeHeaderNav = () => {
             <Flex>
                 <Breadcrumb className='pley-home-nav' spacing='24px' separator="">
                     <BreadcrumbItem className='pley-nav-link'>
-                        <BreadcrumbLink href='/'>PLEY</BreadcrumbLink>
+                        <BreadcrumbLink letterSpacing={'10px'} href='/'>PLEY</BreadcrumbLink>
                     </BreadcrumbItem>
                     {currentUser && (
                         <BreadcrumbItem className='pley-nav-link'>
@@ -53,14 +53,14 @@ const HomeHeaderNav = () => {
                 {currentUser ? (
                     
                     <ButtonGroup className="user-nav" spacing='6'>
-                    <ColorMode/>
-                    <Link href="profile" color="#ffffff"><Button bg='red' _hover={'red'} colorScheme='red' size='md' color='#ffffff'>Profile</Button></Link>
+                        <ColorMode/>
+                        <Link href="profile" color="#ffffff"><Button bg='red' _hover={'red'} colorScheme='red' size='md' color='#ffffff'>Profile</Button></Link>
                     </ButtonGroup>
                     
                 ) : (
                     <ButtonGroup className="user-nav" spacing='6'>
-                    <ColorMode/>
-                    <Link href="login" color="#ffffff"><Button colorScheme='darkblue' bg='darkblue' size='md' width={'200px'} color='#ffffff'>Log In</Button></Link>
+                        <ColorMode/>
+                        <Link href="login" color="#ffffff"><Button colorScheme='darkblue' bg='darkblue' size='md' width={'200px'} color='#ffffff'>Log In</Button></Link>
                     </ButtonGroup>
                 )}
             </Flex>
