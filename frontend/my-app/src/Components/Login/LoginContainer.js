@@ -9,6 +9,8 @@ const LoginContainer = () => {
     return (
         <div className='login-container'>
             <h1 className='login-header'><b>PLEY</b></h1>
+            <br/>
+            <br/>
             <LogIn/>
             <br/>
             <Line/>
