@@ -7,7 +7,11 @@ const Entries = ({title, number, address, passToButton}) => {
     // once user favorites an entry, create new entry with info
 
     const removeEntry = () => {
+<<<<<<< HEAD
         passToButton();
+=======
+        
+>>>>>>> 4c2c2cd1e096cd430c0a49dcb93a32ce3b4c18ef
     }
 
     return (
