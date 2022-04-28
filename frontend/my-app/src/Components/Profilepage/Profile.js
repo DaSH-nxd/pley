@@ -11,22 +11,23 @@ function Profile() {
     const [data, setData] = useState([]);
     const [isDeleteEntry, setIsDeleteEntry] = useState(true);
 
+    // url on where entry has been favorited;
+    const base_url = "http://localhost:3002/favorites";
+
+    const config = {
+        headers : {
+            "token" : AuthService.getCurrentUser()
+        }
+    };
+
     // function on fetching the data that has been favorited
     const getFavoritesData = () => {
-        console.log("HSGFHHSDSDS");
-        // url on where entry has been favorited;
-        const url = "http://localhost:3002/favorites/list";
-
-        const config = {
-            headers : {
-                "token" : AuthService.getCurrentUser()
-            }
-        };
+        // console.log("HSGFHHSDSDS");
         axios
-        .get(url, config)
+        .get(`${base_url}/list`, config)
         //  wait for promise to be resolved using .then, set state variable data to returned data
         .then((res) => {
-            console.log(res.data.favorites);
+            // console.log(res.data.favorites);
             setData(res.data.favorites);
         })
         .catch((error) => console.log(error));
@@ -36,8 +37,18 @@ function Profile() {
         getFavoritesData();
       }, [data, isDeleteEntry]);
 
-    const handleClick = () => {
-        setIsDeleteEntry(!isDeleteEntry);
+    const handleClick = (name, phone_number, address) => {
+        axios
+        .delete(`${base_url}/delete`, {
+            "name": name,
+            "phone_number": phone_number,
+            "address": address
+        }, config)
+        .then((res) => {
+            // console.log(res.data.favorites);
+            setData(res.data.favorites);
+        })
+        .catch((error) => console.log(error));
     }
     return (
         <>
@@ -46,7 +57,7 @@ function Profile() {
         <ProfileHeader/>
         <Divider/>
         <br/>
-        <EntryContainer favorites={data} onClick={() => handleClick()}/>
+        <EntryContainer favorites={data} onClick={handleClick}/>
         <br/>
         </>
     );
