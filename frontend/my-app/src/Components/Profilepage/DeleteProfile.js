@@ -3,7 +3,7 @@ import {Button} from '@chakra-ui/react'
 
 const Delete = () => {
     return (
-        <Button className="delete-button">
+        <Button bg="#E8403D"className="delete-button">
             Delete Account
         </Button>
     )
