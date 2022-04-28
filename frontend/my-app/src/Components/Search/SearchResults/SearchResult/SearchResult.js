@@ -5,6 +5,7 @@ import Favorite from './Favorite/Favorite';
 import { Button, IconButton } from '@chakra-ui/react';
 import axios from 'axios';
 import authService from "./../../../../Services/auth-service";
+import Profile from '../../../Profilepage/Profile';
 
 
 function SearchResult(props) {
@@ -26,16 +27,10 @@ function SearchResult(props) {
             >Favorite</Button>
         )}
     
-
-    
     function handleClick() {
         //name, phonenumber, address
         setDisable(true);
         const b = props.business;
-
-
-
-
 
         const bodyParameters = {
             place: {
@@ -60,6 +55,8 @@ function SearchResult(props) {
             config)
             .then((res) => console.log(res))
             .catch((err) => console.log("elo govna"));
+        
+        // Profile.getFavoritesData();
     }
 
     const b = props.business;

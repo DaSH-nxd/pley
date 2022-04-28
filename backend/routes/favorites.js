@@ -30,17 +30,17 @@ router.get('/list', auth, async (req, res) => {
  */
 router.post('/add', auth, async (req, res) => {
     try {
-        console.log("sendin back0");
+        // console.log("sendin back0");
         const user = await User.findById(req.user.id);
-        console.log("sendin back1");
-        const favorite_data = JSON.stringify(req.body.data);
-        user.favorites.push(req.body.data);
+        // console.log("sendin back1");
+        // const favorite_data = JSON.stringify(req.body.place);
+        user.favorites.push(req.body.place);
         await user.save();
         res.send({
             "favorites":
                 user.favorites
         });
-        console.log("sendin back2");
+        // console.log("sendin back2");
     } catch (e) {
       res.send(e);
     }

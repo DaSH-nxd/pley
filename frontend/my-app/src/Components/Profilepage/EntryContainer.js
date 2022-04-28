@@ -2,46 +2,17 @@ import './Profile.css';
 import React, {useState, useEffect} from 'react';
 import Entries from './Entries.js'
 import {HStack, VStack} from '@chakra-ui/react';
-import axios from 'axios';
-import authHeader from '../../Services/auth-header';
 
-const EntryContainer = () => {
-
-    const [data, setData] = useState([]);
-    const [isDeleteEntry, setIsDeleteEntry] = useState(true);
-
-    // url on where entry has been favorited;
-    const url = "http://localhost:3002/favorites/list";
-
-    // function on fetching the data that has been favorited
-    const getFavoritesData = () => {
-        axios
-        .get(url, {
-            'Content-Type' : 'application/json',
-            'Accept' : 'application/json',
-            'Authorization' : 'Bearer '
-          })
-        //  wait for promise to be resolved using .then, set state variable data to returned data
-        .then((data) => setData(data.data))
-        .catch((error) => console.log(error));
-      };
-
-      useEffect(() => {
-        getFavoritesData();
-      }, [data, isDeleteEntry]);
-
-    const handleClick = () => {
-        setIsDeleteEntry(!isDeleteEntry);
-    }
-
+const EntryContainer = (props) => {
     return (
         <VStack className='entry-container'>
             {
-                data.map(d => 
-                <Entries title={d.title} number={d.number} address={d.address} passToButton={() => handleClick()}/>
+                props.favorites?.map(d => 
+                <Entries name={d.name} phone_number={d.phone_number} address={d.address[0] + " " + d.address[1]} passToButton={() => props.onClick()}/>
                 )
             }
         </VStack>
     )
 }
+
 export default EntryContainer;
