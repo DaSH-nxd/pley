@@ -18,7 +18,7 @@ function SearchResult(props) {
 
         return (
             <Button 
-            colorScheme = 'teal'
+            colorScheme = 'blue'
             variant='solid'
             size = 'xs'
             isDisabled={disable}
