@@ -58,7 +58,10 @@ router.delete('/delete', auth, async (req, res) => {
         const user = await User.findById(req.user.id);
         user.favorites.pull(req.body.data);
         await user.save();
-        res.send(user.favorites);
+        res.send({
+            "favorites":
+                user.favorites
+        });
     } catch (e) {
       res.send({ message: 'Error in Fetching user' });
     }
