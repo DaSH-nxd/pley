@@ -17,9 +17,8 @@ const Texts = (href) => {
     return (
         <VStack spacing={'20px'} className='homepage-text-container'>
             <Text fontSize={'2xl'} className='homepage-text'>
-                Pley connects Berkeley students to local restaurants, bars, dating spots, and even boba hot spots!
+                We connect Berkeley locals to restaurants, bars, boba hot spots, and more in the city.
             </Text>
-            <AnchorLink href={'#' + href}>Click me</AnchorLink>
         </VStack>
     )
 }

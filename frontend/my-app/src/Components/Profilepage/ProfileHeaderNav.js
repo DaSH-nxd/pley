@@ -67,7 +67,7 @@ const ProfileHeaderNav = () => {
             <Flex>
                 <Breadcrumb className='pley-home-nav' spacing='24px' separator="">
                     <BreadcrumbItem className='pley-nav-link'>
-                        <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                        <BreadcrumbLink letterSpacing={'10px'} href='/'>PLEY</BreadcrumbLink>
                     </BreadcrumbItem>
                     {currentUser && (
                         <BreadcrumbItem className='pley-nav-link'>

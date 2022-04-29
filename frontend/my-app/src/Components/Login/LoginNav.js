@@ -15,8 +15,8 @@ const LoginNav = () => {
     return (
         <Flex>
             <Breadcrumb className='pley-login-nav' spacing='24px' separator="">
-                <BreadcrumbItem className='pley-nav-link'>
-                    <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                <BreadcrumbItem letterSpacing={'10px'} className='pley-nav-link'>
+                    <BreadcrumbLink href='/'>PLEY</BreadcrumbLink>
                     <ColorMode/>
                 </BreadcrumbItem>
             </Breadcrumb>

@@ -9,7 +9,8 @@ import {
     InputGroup,
     ListItem,
     UnorderedList,
-    InputLeftElement
+    InputLeftElement,
+    VStack
 } from "@chakra-ui/react"
 import theme from '../../theme/theme';
 import './Signup.css';
@@ -23,7 +24,6 @@ const SignUp = () => {
     const [username, setuserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [verify, setVerify] = useState("");
     const [errmsg, seterrMsg] = useState("");
 
     const navigate = useNavigate();
@@ -53,7 +53,7 @@ const SignUp = () => {
 
     return (
         
-        <ChakraProvider theme={theme}> 
+        <VStack> 
             <FormControl className='signup-form'>
                 <FormLabel htmlFor='username'>Username:</FormLabel>
                 <InputGroup>
@@ -110,20 +110,6 @@ const SignUp = () => {
                         setPassword(d.target.value)
                         }/>
                 </InputGroup>
-            </FormControl>
-            <FormControl className='signup-form' mt={'-20px'}>
-                <InputGroup>
-                    <Input 
-                        id='verify'
-                        type='password' 
-                        placeholder='Verify password'
-                        autoComplete='off'
-                        value={verify}
-                        onChange = {d => 
-                        setVerify(d.target.value)
-                        }/>
-                </InputGroup>
-                <br/>
                 <section> 
                     <b><p className='errmsg'>{errmsg}</p></b>
                 </section>
@@ -131,7 +117,7 @@ const SignUp = () => {
             <Button className='signup-button' width={''} block size ="sm" type="submit" colorScheme={'blue'} onClick={() => registerUser()}>
                 Create Account
             </Button>
-        </ChakraProvider>
+        </VStack>
     );
 }
 
