@@ -14,7 +14,6 @@ const signup = (username, email, password) => {
             }
             return res.data;
         });
-        
 }
 
 const login = (username, password) => {

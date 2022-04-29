@@ -66,18 +66,21 @@ function Profile() {
             console.log(res.data);
             setData(res.data.favorites);
         })
-        .catch((error) => console.log("error with axios delete"));
+        .catch((error) => console.log("error with axios delete one fav"));
     }
 
-    const handleDeleteAccClick = () => {
+    const handleDeleteAllFavsClick = () => {
+        const options = {
+            headers: {
+                "token" : AuthService.getCurrentUser()
+            }
+        }
         axios
-        .delete(`${base_url}/deleteall`, {
-            "token" : AuthService.getCurrentUser()
-        })
+        .delete(`${base_url}/deleteall`, options)
         .then((res) => {
             setData(res.data.favorites);
         })
-        .catch((error) => console.log("error with axios delete"));
+        .catch((error) => console.log("error with axios delete all favs"));
     }
 
     return (
@@ -87,7 +90,7 @@ function Profile() {
         <ProfileHeader/>
         <Divider/>
         <br/>
-        <EntryContainer favorites={data} onDeleteEntryClick={handleDeleteEntryClick}/>
+        <EntryContainer favorites={data} onDeleteEntryClick={handleDeleteEntryClick} onDeleteAccClick={handleDeleteAllFavsClick}/>
         <br/>
         </>
     );

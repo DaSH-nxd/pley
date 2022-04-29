@@ -114,7 +114,10 @@ router.delete('/deleteall', auth, async (req, res) => {
         const user = await User.findById(req.user.id);
         user.favorites.splice(0, user.favorites.length);
         await user.save();
-        res.send(user.favorites);
+        res.send({
+            "favorites":
+                user.favorites
+        });
     } catch (e) {
       res.send({ message: e });
     }

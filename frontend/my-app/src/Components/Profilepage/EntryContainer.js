@@ -11,7 +11,7 @@ const EntryContainer = (props) => {
                 <Entries name={d.name} phone_number={d.phone_number} address={d.address} passToButton={props.onDeleteEntryClick}/>
                 )
             }
-            <Button bg='red' colorScheme='red'>
+            <Button bg='red' colorScheme='red' onClick={() => props.onDeleteAccClick()}>
                 Delete Favorites
             </Button>
         </VStack>
