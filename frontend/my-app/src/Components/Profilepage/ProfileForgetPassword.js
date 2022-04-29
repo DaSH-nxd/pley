@@ -64,7 +64,7 @@ const ForgotPassword = () => {
           <>
             <Text onClick={() => {
                 setOverlay(<OverlayOne/>)
-                onOpen()}}>Change Settings</Text>
+                onOpen()}}>Change Password</Text>
                 
       
             <Modal

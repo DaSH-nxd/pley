@@ -94,9 +94,6 @@ const ProfileHeaderNav = () => {
                         </DrawerHeader>
                         <DrawerBody>
                             <VStack spacing='30px'>
-                                <Link >
-                                    Settings
-                                </Link>
                                 <Link><ForgotPassword/></Link>
                                 <Link onClick={() => logOut()}>
                                     Sign Out
