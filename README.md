@@ -1,4 +1,4 @@
-# Design Doc
+# Design Doc (for internal notetaking)
 
 ## Pages
 
@@ -37,7 +37,7 @@
 #### Search
 
 <ul>
-    <li>Lots of input boxes for search filters, to be decided use https://devpost.com/software/join-me for inspiration</li>
+    <li>Lots of input boxes for search filtersn</li>
     <li>submit button</li>
 </ul>
 
